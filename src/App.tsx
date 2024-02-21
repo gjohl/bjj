@@ -1,4 +1,3 @@
-// import { useMemo, useState, useCallback } from 'react'
 import './App.css';
 import * as positionData from './data/position-data.json';
 import NetworkGraph from './components/NetworkGraph';
