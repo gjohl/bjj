@@ -1,6 +1,6 @@
 // import { useMemo, useState, useCallback } from 'react'
 import './App.css'
-import { ForceGraph2D } from 'react-force-graph';
+import NetworkGraph from './components/NetworkGraph';
 
 
 const App = () => {
@@ -28,20 +28,20 @@ const App = () => {
       
       <div>
         <p>
-        <ForceGraph2D 
+        <NetworkGraph 
         graphData={mockData}
-        nodeRelSize={5}
-        backgroundColor='white'
-        height={500}
-        width={500}
-        linkWidth={15}
-        // minZoom={0.01}
-        // linkColor='red'
-        enableNodeDrag={false}
-        linkCurvature={0.3}
-        linkDirectionalArrowLength={10}
-        linkDirectionalArrowRelPos={0.5}
-        linkDirectionalParticles={4}
+        // nodeRelSize={5}
+        // backgroundColor='white'
+        // height={500}
+        // width={500}
+        // linkWidth={15}
+        // // minZoom={0.01}
+        // // linkColor='red'
+        // enableNodeDrag={false}
+        // linkCurvature={0.3}
+        // linkDirectionalArrowLength={10}
+        // linkDirectionalArrowRelPos={0.5}
+        // linkDirectionalParticles={4}
         />
         </p>
       </div>
@@ -49,4 +49,4 @@ const App = () => {
   )
 }
 
-export default App
+export default App;
