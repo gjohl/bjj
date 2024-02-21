@@ -1,0 +1,21 @@
+{
+    "nodes": [
+        {"id": "closed-guard", "val": 1, "group": 1 }, 
+        {"id": "open-guard", "val": 2, "group": 1 }, 
+        {"id": "de-la-riva-guard", "val": 2, "group": 1 },
+        {"id": "half-guard", "val": 2, "group": 1 },
+        {"id": "side-mount", "val": 3, "group": 2 },
+        {"id": "knee-mount", "val": 3, "group": 2 },
+        {"id": "mount", "val": 3, "group": 2 },
+        {"id": "rear-mount", "val": 3, "group": 3 },
+        {"id": "turtle", "val": 3, "group": 0 }
+    ],
+    "links": [
+        {"source": "closed-guard", "target": "side-mount", "curvature": 0},
+        {"source": "closed-guard", "target": "side-mount", "curvature": 0.2},
+        {"source": "closed-guard", "target": "side-mount", "curvature": 0.4},
+        {"source": "closed-guard", "target": "mount"},
+        {"source": "side-mount", "target": "mount"},
+        {"source": "open-guard", "target": "mount"}
+    ]
+}
