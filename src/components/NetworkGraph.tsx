@@ -11,7 +11,7 @@ const NetworkGraph: React.FC<Props> = (props : Props) => {
         <ForceGraph2D 
         graphData={graphData}
         nodeRelSize={5}
-        backgroundColor='white'
+        // backgroundColor='white'
         height={500}
         width={500}
         linkWidth={15}
