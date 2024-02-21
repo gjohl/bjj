@@ -1,5 +1,6 @@
 import './App.css';
 import graphData from './data/data-parser';
+import randomData from './data/random-data';
 import NetworkGraph from './components/NetworkGraph';
 
 
@@ -16,7 +17,7 @@ const App = () => {
       <div>
         <p>
         <NetworkGraph 
-        graphData={graphData}
+        graphData={randomData}
         />
         </p>
       </div>

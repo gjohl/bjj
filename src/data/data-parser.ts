@@ -7,6 +7,7 @@ type InputDataType = {
 }
 
 const dataParser = (inputData: InputDataType) => {
+
     return inputData
 }
 
