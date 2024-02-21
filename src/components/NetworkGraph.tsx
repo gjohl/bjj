@@ -9,19 +9,20 @@ const NetworkGraph: React.FC<Props> = (props : Props) => {
     const { graphData } = props;
     const NODE_R = 8;
     // const fgRef = useRef();
+    console.log(graphData);
 
     const paintRing = useCallback((node: any, ctx: any) => {
         // Add ring just for highlighted nodes
         ctx.beginPath();
         ctx.arc(node.x, node.y, NODE_R * 1.4, 0, 2 * Math.PI, false);
-        ctx.fillStyle = node === hoverNode ? 'red' : 'orange';
+        ctx.fillStyle = node === hoverNode ? 'red' : 'black';
         ctx.fill();
 
         // Main node
-        // ctx.beginPath();
-        // ctx.arc(node.x, node.y, NODE_R, 0, 2 * Math.PI, false);
-        // // ctx.fillStyle = "blue";
-        // ctx.fill();
+        ctx.beginPath();
+        ctx.arc(node.x, node.y, NODE_R, 0, 2 * Math.PI, false);
+        ctx.fillStyle = "black";
+        ctx.fill();
             
         // Text
         ctx.textAlign = "center";
@@ -69,7 +70,7 @@ const NetworkGraph: React.FC<Props> = (props : Props) => {
     return (
         <ForceGraph2D 
         graphData={graphData}
-        nodeAutoColorBy={"group"}
+        // nodeAutoColorBy={"group"}
         enableNodeDrag={false}
 
         //  For debugging UI
@@ -92,7 +93,7 @@ const NetworkGraph: React.FC<Props> = (props : Props) => {
         nodeRelSize={NODE_R}
         autoPauseRedraw={false}
         // nodeCanvasObjectMode={() => 'before' }
-        nodeCanvasObjectMode={node => highlightNodes.has(node) ? 'before' : undefined}
+        nodeCanvasObjectMode={node => highlightNodes.has(node) ? 'before' : 'after'}
         nodeCanvasObject={paintRing}
 
         // Highlight

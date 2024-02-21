@@ -5,7 +5,6 @@ import NetworkGraph from './components/NetworkGraph';
 
 
 const App = () => {
-    console.log(genRandomTree(5))
   return (
     <>
       <h1>BJJ Notes</h1>
