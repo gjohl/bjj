@@ -1,5 +1,5 @@
 import './App.css';
-import * as positionData from './data/position-data.json';
+import graphData from './data/data-parser';
 import NetworkGraph from './components/NetworkGraph';
 
 
@@ -16,7 +16,7 @@ const App = () => {
       <div>
         <p>
         <NetworkGraph 
-        graphData={positionData}
+        graphData={graphData}
         />
         </p>
       </div>

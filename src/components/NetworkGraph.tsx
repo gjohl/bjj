@@ -10,7 +10,6 @@ const NetworkGraph: React.FC<Props> = (props : Props) => {
     // const fgRef = useRef();
 
     const paintRing = useCallback((node: any, ctx: any) => {
-        console.log(ctx)
         ctx.beginPath();
         ctx.arc(node.x, node.y, 10, 0, 2 * Math.PI, false);
         // ctx.fillStyle = "blue";
