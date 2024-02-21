@@ -8,7 +8,21 @@
   <script src="//unpkg.com/react-force-graph-2d"></script>
   <!--<script src="../../src/packages/react-force-graph-2d/dist/react-force-graph-2d.js"></script>-->
 
-  <script src="../src/random-data.js"></script>
+  <!-- <script src="../src/random-data.js"></script> -->
+
+  <script type="text/jsx">
+  function genRandomTree(N = 300, reverse = false) {
+    return {
+      nodes: [...Array(N).keys()].map(i => ({ id: i })),
+        links: [...Array(N).keys()]
+      .filter(id => id)
+      .map(id => ({
+        [reverse ? 'target' : 'source']: id,
+        [reverse ? 'source' : 'target']: Math.round(Math.random() * (id-1))
+      }))
+    };
+  }
+</script>
 </head>
 
 <body>
