@@ -12,10 +12,10 @@ const NetworkGraph: React.FC<Props> = (props : Props) => {
 
     const paintRing = useCallback((node: any, ctx: any) => {
         // Add ring just for highlighted nodes
-        // ctx.beginPath();
-        // ctx.arc(node.x, node.y, NODE_R * 1.4, 0, 2 * Math.PI, false);
-        // ctx.fillStyle = node === hoverNode ? 'red' : 'orange';
-        // ctx.fill();
+        ctx.beginPath();
+        ctx.arc(node.x, node.y, NODE_R * 1.4, 0, 2 * Math.PI, false);
+        ctx.fillStyle = node === hoverNode ? 'red' : 'orange';
+        ctx.fill();
 
         // Main node
         // ctx.beginPath();
@@ -39,32 +39,30 @@ const NetworkGraph: React.FC<Props> = (props : Props) => {
         setHighlightLinks(highlightLinks);
       };
 
-    // const handleNodeHover = node => {
-    // highlightNodes.clear();
-    // highlightLinks.clear();
-    // if (node) {
-    //     highlightNodes.add(node);
-    //     node.neighbors.forEach(neighbor => highlightNodes.add(neighbor));
-    //     node.links.forEach(link => highlightLinks.add(link));
-    // }
-    // setHoverNode(node || null);
-    //     updateHighlight();
-    // };
+    const handleNodeHover = node => {
+    highlightNodes.clear();
+    highlightLinks.clear();
+    if (node) {
+        highlightNodes.add(node);
+        node.neighbors.forEach(neighbor => highlightNodes.add(neighbor));
+        node.links.forEach(link => highlightLinks.add(link));
+    }
+    setHoverNode(node || null);
+        updateHighlight();
+    };
 
-    // const handleLinkHover = link => {
-    // highlightNodes.clear();
-    // highlightLinks.clear();
+    const handleLinkHover = link => {
+    highlightNodes.clear();
+    highlightLinks.clear();
+    if (link) {
+        highlightLinks.add(link);
+        highlightNodes.add(link.source);
+        highlightNodes.add(link.target);
+    }
+    updateHighlight();
+    };
 
-    // if (link) {
-    //     highlightLinks.add(link);
-    //     highlightNodes.add(link.source);
-    //     highlightNodes.add(link.target);
-    // }
-
-    // updateHighlight();
-    // };
-
-    console.log(highlightNodes);
+    // console.log(graphData['nodes'][0]);
 
 
 
@@ -93,14 +91,14 @@ const NetworkGraph: React.FC<Props> = (props : Props) => {
         // Text in nodes
         nodeRelSize={NODE_R}
         autoPauseRedraw={false}
-        nodeCanvasObjectMode={() => 'before' }
-        // nodeCanvasObjectMode={node => highlightNodes.has(node) ? 'before' : undefined}
+        // nodeCanvasObjectMode={() => 'before' }
+        nodeCanvasObjectMode={node => highlightNodes.has(node) ? 'before' : undefined}
         nodeCanvasObject={paintRing}
 
         // Highlight
         linkWidth={link => highlightLinks.has(link) ? 10 : 5}
-        // onNodeHover={handleNodeHover}
-        // onLinkHover={handleLinkHover}
+        onNodeClick={handleNodeHover}
+        onLinkClick={handleLinkHover}
         />
     )
 }

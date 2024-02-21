@@ -1,10 +1,11 @@
 import './App.css';
 import graphData from './data/data-parser';
-import randomData from './data/random-data';
+import randomData, {genRandomTree} from './data/random-data';
 import NetworkGraph from './components/NetworkGraph';
 
 
 const App = () => {
+    console.log(genRandomTree(5))
   return (
     <>
       <h1>BJJ Notes</h1>
@@ -17,7 +18,7 @@ const App = () => {
       <div>
         <p>
         <NetworkGraph 
-        graphData={randomData}
+        graphData={graphData}
         />
         </p>
       </div>
