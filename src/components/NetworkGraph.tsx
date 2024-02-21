@@ -12,8 +12,8 @@ const NetworkGraph: React.FC<Props> = (props : Props) => {
         graphData={graphData}
         nodeRelSize={5}
         // backgroundColor='white'
-        height={500}
-        width={500}
+        // height={500}
+        // width={500}
         linkWidth={15}
         // minZoom={0.01}
         // linkColor='red'
