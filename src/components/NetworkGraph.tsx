@@ -1,17 +1,11 @@
 import React, { useCallback, useState } from 'react';
 import { ForceGraph2D } from 'react-force-graph';
 
-type Props = {
-    graphData: {
-        nodes: { id: number; name: string; val: number; x: number; y: number }[];
-        links: { source: number; target: number; }[]
-    }
-};
 type Node = { id: number; name: string; val: number; x: number; y: number };
 type Link = { source: number; target: number; };
 
 
-const NetworkGraph: React.FC<Props> = (props: Props) => {
+const NetworkGraph: React.FC<any> = (props) => {
     const { graphData } = props;
     const NODE_R = 8;
     console.log(graphData);
