@@ -8,20 +8,20 @@ import NetworkGraph from './components/NetworkGraph';
 const App = () => {
     const inputData = {
         "nodes": [
-            {"id": 0, "name": "closed-guard" }, 
-            {"id": 40, "name": "side-mount" },
-            {"id": 60, "name": "mount" }
+            { "id": 0, "name": "closed-guard", "x": 0, "y": 0 },
+            { "id": 40, "name": "side-mount", "x": -50, "y": -500 },
+            { "id": 60, "name": "mount", "x": 5000, "y": 10000 }
         ],
         "links": [
-            {"id": 0, "source": 0, "sourceNode": {"id": 0, "name": "closed-guard" }, "target": 40, "targetNode": {"id": 40, "name": "side-mount" }, "curvature": 0},
-            {"id": 10, "source": 0, "sourceNode": {"id": 0, "name": "closed-guard" }, "target": 40, "targetNode": {"id": 40, "name": "side-mount" }, "curvature": 0.2},
-            {"id": 20, "source": 0, "sourceNode": {"id": 0, "name": "closed-guard" }, "target": 40, "targetNode": {"id": 40, "name": "side-mount" }, "curvature": 0.4},
-            {"id": 30, "source": 0, "sourceNode": {"id": 0, "name": "closed-guard" }, "target": 60, "targetNode": {"id": 60, "name": "mount" }},
+            { "id": 0, "source": 0, "sourceNode": { "id": 0, "name": "closed-guard" }, "target": 40, "targetNode": { "id": 40, "name": "side-mount" }, "curvature": 0, "color": 'red' },
+            { "id": 10, "source": 0, "sourceNode": { "id": 0, "name": "closed-guard" }, "target": 40, "targetNode": { "id": 40, "name": "side-mount" }, "curvature": 0.2, "color": 'green' },
+            { "id": 20, "source": 0, "sourceNode": { "id": 0, "name": "closed-guard" }, "target": 40, "targetNode": { "id": 40, "name": "side-mount" }, "curvature": 0.4, "color": 'red' },
+            { "id": 30, "source": 0, "sourceNode": { "id": 0, "name": "closed-guard" }, "target": 60, "targetNode": { "id": 60, "name": "mount" }, "color": 'blue' },
             // {"id": 40,"source": {"id": 40, "name": "side-mount" }, "target": {"id": 60, "name": "mount" }},
             // {"id": 50,"source": {"id": 60, "name": "mount" }, "target": {"id": 60, "name": "mount" }}
         ]
     }
-    ;
+        ;
     // Populate links and neighbors array for each node.
     inputData.links.forEach(link => {
         // Find the source and target nodes of this link

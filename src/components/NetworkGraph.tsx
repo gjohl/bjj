@@ -21,10 +21,10 @@ const NetworkGraph: React.FC<Props> = (props: Props) => {
         ctx.fill();
 
         // Main node
-        // ctx.beginPath();
-        // ctx.arc(node.x, node.y, NODE_R, 0, 2 * Math.PI, false);
-        // ctx.fillStyle = "black";
-        // ctx.fill();
+        ctx.beginPath();
+        ctx.arc(node.x, node.y, NODE_R, 0, 2 * Math.PI, false);
+        ctx.fillStyle = "black";
+        ctx.fill();
 
         // Text
         ctx.textAlign = "center";
@@ -85,7 +85,7 @@ const NetworkGraph: React.FC<Props> = (props: Props) => {
             // onEngineStop={() => fgRef.current?.zoomToFit(400)}
 
             // Link attributes        
-            linkWidth={15}
+            // linkWidth={15}
             linkCurvature={"curvature"}
             linkDirectionalArrowLength={10}
             linkDirectionalArrowRelPos={0.5}
@@ -99,9 +99,9 @@ const NetworkGraph: React.FC<Props> = (props: Props) => {
             nodeCanvasObject={paintRing}
 
             // Highlight
-            // linkWidth={link => highlightLinks.has(link) ? 10 : 5}
-            onNodeHover={handleNodeHover}
-            onLinkHover={handleLinkHover}
+            linkWidth={link => highlightLinks.has(link) ? 10 : 5}
+            onNodeClick={handleNodeHover}
+            onLinkClick={handleLinkHover}
         />
     )
 }
