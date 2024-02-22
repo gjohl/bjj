@@ -2,6 +2,7 @@ import './NetworkGraph.css';
 
 import React, { useCallback, useState } from 'react';
 import { ForceGraph2D } from 'react-force-graph';
+// import InfoCard from './InfoCard';
 
 type Node = { id: number; name: string; val: number; x: number; y: number };
 type Link = { source: number; target: number; };
@@ -11,7 +12,6 @@ const NetworkGraph: React.FC<any> = (props) => {
     const { graphData } = props;
 
     const NODE_R = 8;
-    console.log(graphData);
 
     const [highlightNodes, setHighlightNodes] = useState(new Set());
     const [highlightLinks, setHighlightLinks] = useState(new Set());
@@ -65,12 +65,35 @@ const NetworkGraph: React.FC<any> = (props) => {
         updateHighlight();
     };
 
+    console.log(highlightNodes);
+    const nodeList = [...highlightNodes].map((node: Node) => <li>{node.name}</li>)
+
     return (
         <>
             <div className="card">
-                <p className="read-the-docs">
-                    Coming soon...
-                </p>
+                {/* <InfoCard/> */}
+                <div className='infoTitle'>
+                    POSITION NAME
+                </div>
+
+                <div className='infoSubtitle'>
+                    Sweeps
+                </div>
+                <div className='infoListItems'>
+                <ul>
+                    <li>Flower sweep</li>
+                    <li>Pendulum sweep</li>
+                </ul>
+                </div>
+
+                <div className='infoSubtitle'>
+                    Escapes
+                </div>
+
+                <div className='infoSubtitle'>
+                    Submissions
+                </div>
+
             </div>
 
             <div>

@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import './App.css';
 // import graphData from './data/data-parser';
 // import * as graphData from './data/position-data.json';
