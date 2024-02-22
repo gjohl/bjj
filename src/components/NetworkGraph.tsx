@@ -2,7 +2,7 @@ import './NetworkGraph.css';
 
 import React, { useCallback, useState } from 'react';
 import { ForceGraph2D } from 'react-force-graph';
-// import InfoCard from './InfoCard';
+import InfoCard from './InfoCard/InfoCard';
 
 type Node = { id: number; name: string; val: number; x: number; y: number };
 type Link = { source: number; target: number; };
@@ -71,29 +71,11 @@ const NetworkGraph: React.FC<any> = (props) => {
     return (
         <>
             <div className="card">
-                {/* <InfoCard/> */}
-                <div className='infoTitle'>
-                    POSITION NAME
-                </div>
-
-                <div className='infoSubtitle'>
-                    Sweeps
-                </div>
-                <div className='infoListItems'>
-                <ul>
-                    <li>Flower sweep</li>
-                    <li>Pendulum sweep</li>
-                </ul>
-                </div>
-
-                <div className='infoSubtitle'>
-                    Escapes
-                </div>
-
-                <div className='infoSubtitle'>
-                    Submissions
-                </div>
-
+                <InfoCard
+                    sweepList={["Kesa Gatame", "Reverse Kesa Gatame", "Slide knee to mount", "Hug to rear mount"]}
+                    escapeList={["Shrimp to knee shield", "Turn to turtle", "Bridge"]}
+                    submissionList={["Americana", "Kimura"]}
+                />
             </div>
 
             <div>

@@ -2,20 +2,3 @@
     padding: 2em;
     background-color: #1a1a1a;
   }
-
-.infoTitle {
-    text-align: center;
-    font-size: large;
-    font-weight: bolder;
-}
-
-.infoSubTitle {
-    text-align: left;
-    font-size: medium;
-    font-weight: bold;
-}
-
-.infoListItems {
-    text-align: left;
-    font-size: small;
-}
