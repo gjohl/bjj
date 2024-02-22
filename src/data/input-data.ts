@@ -6,12 +6,19 @@ type InputDataType = {
 const generateInputData = () => {
     const inputData: InputDataType = {
         "nodes": [
+            //  id=0, name="Closed Guard", position=top/bottom, 
+            //  x, y, neighbours, links
             { "id": 0, "name": "closed-guard", "x": 0, "y": 0, "neighbors": [], "links": [] },
             { "id": 10, "name": "half-guard", "x": 50, "y": 0, "neighbors": [], "links": [] },
+            { "id": 11, "name": "half-guard-top", "x": 50, "y": 1, "neighbors": [], "links": [] },
             { "id": 40, "name": "side-mount", "x": 0, "y": -50, "neighbors": [], "links": [] },
             { "id": 60, "name": "mount", "x": 0, "y": 100, "neighbors": [], "links": [] },
         ],
         "links": [
+            // id=0, name="Flower sweep", transitionType=sweep/escape/submission
+            // description="Gurp's notes on this", relatedLinks=["url1.com", "url2.com"]
+            // source=nodeId, sourceNode=node (auto-generate?), target=nodeId, targetNode=node (auto-generate?),
+            // curvature, color, 
             { "id": 0, "source": 0, "sourceNode": { "id": 0, "name": "closed-guard" }, "target": 40, "targetNode": { "id": 40, "name": "side-mount" }, "curvature": 0, "color": 'red' },
             { "id": 10, "source": 0, "sourceNode": { "id": 0, "name": "closed-guard" }, "target": 40, "targetNode": { "id": 40, "name": "side-mount" }, "curvature": 0.2, "color": 'green' },
             { "id": 20, "source": 0, "sourceNode": { "id": 0, "name": "closed-guard" }, "target": 40, "targetNode": { "id": 40, "name": "side-mount" }, "curvature": 0.4, "color": 'red' },

@@ -9,19 +9,15 @@ import generateInputData from './data/input-data';
 const App = () => {
     const inputData = generateInputData();
 
+
     return (
         <>
             <h1>BJJ Notes</h1>
-            <div className="card">
-                <p className="read-the-docs">
-                    Coming soon...
-                </p>
-            </div>
 
             <div>
-                    <NetworkGraph
-                        graphData={inputData}
-                    />
+                <NetworkGraph
+                    graphData={inputData}
+                />
             </div>
         </>
     )
