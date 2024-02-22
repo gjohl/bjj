@@ -1,3 +1,5 @@
+import './NetworkGraph.css';
+
 import React, { useCallback, useState } from 'react';
 import { ForceGraph2D } from 'react-force-graph';
 
@@ -7,8 +9,13 @@ type Link = { source: number; target: number; };
 
 const NetworkGraph: React.FC<any> = (props) => {
     const { graphData } = props;
+
     const NODE_R = 8;
     console.log(graphData);
+
+    const [highlightNodes, setHighlightNodes] = useState(new Set());
+    const [highlightLinks, setHighlightLinks] = useState(new Set());
+    const [hoverNode, setHoverNode] = useState(null);
 
     const paintRing = useCallback((node: Node, ctx: any) => {
         // Add ring just for highlighted nodes
@@ -29,10 +36,6 @@ const NetworkGraph: React.FC<any> = (props) => {
         ctx.fillStyle = "white";
         ctx.fillText(node.name, node.x, node.y);
     }, []);
-
-    const [highlightNodes, setHighlightNodes] = useState(new Set());
-    const [highlightLinks, setHighlightLinks] = useState(new Set());
-    const [hoverNode, setHoverNode] = useState(null);
 
     const updateHighlight = () => {
         setHighlightNodes(highlightNodes);
@@ -63,39 +66,52 @@ const NetworkGraph: React.FC<any> = (props) => {
     };
 
     return (
-        <ForceGraph2D
-            graphData={graphData}
-            nodeAutoColorBy={"group"}
-            enableNodeDrag={false}
+        <>
+            <div className="card">
+                <p className="read-the-docs">
+                    Coming soon...
+                </p>
+            </div>
 
-            //  For debugging UI
-            // backgroundColor='white'
-            // height={500}
-            // width={500}
+            <div>
+                <ForceGraph2D
+                    graphData={graphData}
+                    nodeAutoColorBy={"group"}
+                    enableNodeDrag={false}
 
-            // Zoom-to-fit
-            // ref={fgRef}
-            // onEngineStop={() => fgRef.current?.zoomToFit(400)}
+                    //  For debugging UI
+                    // backgroundColor='white'
+                    // height={500}
+                    // width={500}
 
-            // Link attributes        
-            // linkWidth={15}
-            linkCurvature={"curvature"}
-            linkDirectionalArrowLength={10}
-            linkDirectionalArrowRelPos={0.5}
-            linkDirectionalParticles={3}
+                    // Zoom-to-fit
+                    // ref={fgRef}
+                    // onEngineStop={() => fgRef.current?.zoomToFit(400)}
 
-            // Text in nodes
-            nodeRelSize={NODE_R}
-            autoPauseRedraw={false}
-            // nodeCanvasObjectMode={() => 'before' }
-            nodeCanvasObjectMode={node => highlightNodes.has(node) ? 'before' : 'after'}
-            nodeCanvasObject={paintRing}
+                    // Link attributes        
+                    // linkWidth={15}
+                    linkCurvature={"curvature"}
+                    linkDirectionalArrowLength={10}
+                    linkDirectionalArrowRelPos={0.5}
+                    linkDirectionalParticles={3}
 
-            // Highlight
-            linkWidth={link => highlightLinks.has(link) ? 10 : 5}
-            onNodeClick={handleNodeHover}
-            onLinkClick={handleLinkHover}
-        />
+                    // Text in nodes
+                    nodeRelSize={NODE_R}
+                    autoPauseRedraw={false}
+                    // nodeCanvasObjectMode={() => 'before' }
+                    nodeCanvasObjectMode={node => highlightNodes.has(node) ? 'before' : 'after'}
+                    nodeCanvasObject={paintRing}
+
+                    // Highlight
+                    linkWidth={link => highlightLinks.has(link) ? 10 : 5}
+                    onNodeClick={handleNodeHover}
+                    onLinkClick={handleLinkHover}
+                />
+            </div>
+        </>
+
+
+
     )
 }
 
