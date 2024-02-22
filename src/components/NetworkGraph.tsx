@@ -65,8 +65,8 @@ const NetworkGraph: React.FC<any> = (props) => {
         updateHighlight();
     };
 
-    console.log(highlightNodes);
-    const nodeList = [...highlightNodes].map((node: Node) => <li>{node.name}</li>)
+    // console.log(highlightNodes);
+    // const nodeList = [...highlightNodes].map((node: Node) => <li>{node.name}</li>)
 
     return (
         <>
