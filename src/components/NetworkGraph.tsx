@@ -73,6 +73,7 @@ const NetworkGraph: React.FC<any> = (props) => {
             <div className="card">
                 <InfoCard
                     sweepList={["Kesa Gatame", "Reverse Kesa Gatame", "Slide knee to mount", "Hug to rear mount"]}
+                    // sweepList={nodeList}
                     escapeList={["Shrimp to knee shield", "Turn to turtle", "Bridge"]}
                     submissionList={["Americana", "Kimura"]}
                 />
