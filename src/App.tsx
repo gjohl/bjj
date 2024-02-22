@@ -19,11 +19,9 @@ const App = () => {
             </div>
 
             <div>
-                <p>
                     <NetworkGraph
                         graphData={inputData}
                     />
-                </p>
             </div>
         </>
     )
