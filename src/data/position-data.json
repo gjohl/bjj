@@ -1,21 +1,15 @@
 {
     "nodes": [
-        {"id": "closed-guard", "val": 1, "group": 1 }, 
-        {"id": "open-guard", "val": 1, "group": 1 }, 
-        {"id": "de-la-riva-guard", "val": 1, "group": 1 },
-        {"id": "half-guard", "val": 1, "group": 1 },
-        {"id": "side-mount", "val": 1, "group": 2 },
-        {"id": "knee-mount", "val": 1, "group": 2 },
-        {"id": "mount", "val": 1, "group": 2 },
-        {"id": "rear-mount", "val": 1, "group": 3 },
-        {"id": "turtle", "val": 1, "group": 0 }
+        {"id": 0, "name": "closed-guard" }, 
+        {"id": 40, "name": "side-mount" },
+        {"id": 60, "name": "mount" }
     ],
     "links": [
-        {"source": "closed-guard", "target": "side-mount", "curvature": 0},
-        {"source": "closed-guard", "target": "side-mount", "curvature": 0.2},
-        {"source": "closed-guard", "target": "side-mount", "curvature": 0.4},
-        {"source": "closed-guard", "target": "mount"},
-        {"source": "side-mount", "target": "mount"},
-        {"source": "open-guard", "target": "mount"}
+        {"id": 0, "source": {"id": 0, "name": "closed-guard" }, "target": {"id": 40, "name": "side-mount" }, "curvature": 0},
+        {"id": 10,"source": {"id": 0, "name": "closed-guard" }, "target": {"id": 40, "name": "side-mount" }, "curvature": 0.2},
+        {"id": 20,"source": {"id": 0, "name": "closed-guard" }, "target": {"id": 40, "name": "side-mount" }, "curvature": 0.4},
+        {"id": 30,"source": {"id": 0, "name": "closed-guard" }, "target": {"id": 60, "name": "mount" }},
+        {"id": 40,"source": {"id": 40, "name": "side-mount" }, "target": {"id": 60, "name": "mount" }},
+        {"id": 50,"source": {"id": 60, "name": "mount" }, "target": {"id": 60, "name": "mount" }}
     ]
 }
