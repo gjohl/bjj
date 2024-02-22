@@ -5,11 +5,9 @@
         {"id": 60, "name": "mount" }
     ],
     "links": [
-        {"id": 0, "source": {"id": 0, "name": "closed-guard" }, "target": {"id": 40, "name": "side-mount" }, "curvature": 0},
-        {"id": 10,"source": {"id": 0, "name": "closed-guard" }, "target": {"id": 40, "name": "side-mount" }, "curvature": 0.2},
-        {"id": 20,"source": {"id": 0, "name": "closed-guard" }, "target": {"id": 40, "name": "side-mount" }, "curvature": 0.4},
-        {"id": 30,"source": {"id": 0, "name": "closed-guard" }, "target": {"id": 60, "name": "mount" }},
-        {"id": 40,"source": {"id": 40, "name": "side-mount" }, "target": {"id": 60, "name": "mount" }},
-        {"id": 50,"source": {"id": 60, "name": "mount" }, "target": {"id": 60, "name": "mount" }}
+        { "id": 0, "source": 0, "sourceNode": { "id": 0, "name": "closed-guard" }, "target": 40, "targetNode": { "id": 40, "name": "side-mount" }, "curvature": 0, "color": "red" },
+        { "id": 10, "source": 0, "sourceNode": { "id": 0, "name": "closed-guard" }, "target": 40, "targetNode": { "id": 40, "name": "side-mount" }, "curvature": 0.2, "color": "green" },
+        { "id": 20, "source": 0, "sourceNode": { "id": 0, "name": "closed-guard" }, "target": 40, "targetNode": { "id": 40, "name": "side-mount" }, "curvature": 0.4, "color": "red" },
+        { "id": 30, "source": 0, "sourceNode": { "id": 0, "name": "closed-guard" }, "target": 60, "targetNode": { "id": 60, "name": "mount" }, "color": "blue" }
     ]
 }

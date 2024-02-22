@@ -1,7 +1,7 @@
 import './App.css';
 // import graphData from './data/data-parser';
 // import * as graphData from './data/position-data.json';
-import randomData, { genRandomTree } from './data/random-data';
+// import randomData, { genRandomTree } from './data/random-data';
 import NetworkGraph from './components/NetworkGraph';
 
 
@@ -9,8 +9,9 @@ const App = () => {
     const inputData = {
         "nodes": [
             { "id": 0, "name": "closed-guard", "x": 0, "y": 0 },
-            { "id": 40, "name": "side-mount", "x": -50, "y": -500 },
-            { "id": 60, "name": "mount", "x": 5000, "y": 10000 }
+            { "id": 10, "name": "half-guard", "x": 50, "y": 0 },
+            { "id": 40, "name": "side-mount", "x": 0, "y": -50 },
+            { "id": 60, "name": "mount", "x": 0, "y": 100 },
         ],
         "links": [
             { "id": 0, "source": 0, "sourceNode": { "id": 0, "name": "closed-guard" }, "target": 40, "targetNode": { "id": 40, "name": "side-mount" }, "curvature": 0, "color": 'red' },
