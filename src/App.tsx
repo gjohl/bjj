@@ -13,20 +13,20 @@ const App = () => {
             {"id": 60, "name": "mount" }
         ],
         "links": [
-            {"id": 0, "source": {"id": 0, "name": "closed-guard" }, "target": {"id": 40, "name": "side-mount" }, "curvature": 0},
-            {"id": 10,"source": {"id": 0, "name": "closed-guard" }, "target": {"id": 40, "name": "side-mount" }, "curvature": 0.2},
-            {"id": 20,"source": {"id": 0, "name": "closed-guard" }, "target": {"id": 40, "name": "side-mount" }, "curvature": 0.4},
-            {"id": 30,"source": {"id": 0, "name": "closed-guard" }, "target": {"id": 60, "name": "mount" }},
-            {"id": 40,"source": {"id": 40, "name": "side-mount" }, "target": {"id": 60, "name": "mount" }},
-            {"id": 50,"source": {"id": 60, "name": "mount" }, "target": {"id": 60, "name": "mount" }}
+            {"id": 0, "source": 0, "sourceNode": {"id": 0, "name": "closed-guard" }, "target": 40, "targetNode": {"id": 40, "name": "side-mount" }, "curvature": 0},
+            {"id": 10, "source": 0, "sourceNode": {"id": 0, "name": "closed-guard" }, "target": 40, "targetNode": {"id": 40, "name": "side-mount" }, "curvature": 0.2},
+            {"id": 20, "source": 0, "sourceNode": {"id": 0, "name": "closed-guard" }, "target": 40, "targetNode": {"id": 40, "name": "side-mount" }, "curvature": 0.4},
+            {"id": 30, "source": 0, "sourceNode": {"id": 0, "name": "closed-guard" }, "target": 60, "targetNode": {"id": 60, "name": "mount" }},
+            // {"id": 40,"source": {"id": 40, "name": "side-mount" }, "target": {"id": 60, "name": "mount" }},
+            // {"id": 50,"source": {"id": 60, "name": "mount" }, "target": {"id": 60, "name": "mount" }}
         ]
     }
     ;
     // Populate links and neighbors array for each node.
     inputData.links.forEach(link => {
         // Find the source and target nodes of this link
-        const a = inputData.nodes.filter(node => node.id === link.source.id)[0]
-        const b = inputData.nodes.filter(node => node.id === link.target.id)[0]
+        const a = inputData.nodes.filter(node => node.id === link.source)[0]
+        const b = inputData.nodes.filter(node => node.id === link.target)[0]
 
         // Initialise the neighbors array if this does not already exist
         !a.neighbors && (a.neighbors = []);
