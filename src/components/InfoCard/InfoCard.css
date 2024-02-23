@@ -19,3 +19,53 @@
     text-align: left;
     font-size: small;
 }
+
+.subtitleContainer {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.infoDetailPanel {
+    text-align: left;
+}
+
+.infoDetailTitle {
+    text-align: center;
+    font-size: large;
+    font-weight: bolder;
+
+}
+
+.infoSubsectionContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.infoDetailDescription {
+    font-size: small;
+}
+
+.infoDetailRelatedLinks {
+    font-size: small;
+}
+
+/* unvisited link */
+a:link {
+    color: red;
+  }
+  
+  /* visited link */
+  a:visited {
+    color: green;
+  }
+  
+  /* mouse over link */
+  a:hover {
+    color: hotpink;
+  }
+  
+  /* selected link */
+  a:active {
+    color: blue;
+  }
