@@ -19,3 +19,42 @@
     text-align: left;
     font-size: small;
 }
+
+.infoDetailPanel {
+    text-align: left;
+}
+
+.infoDetailTitle {
+    text-align: center;
+    font-size: large;
+    font-weight: bolder;
+
+}
+
+.infoDetailDescription {
+    font-size: small;
+}
+
+.infoDetailRelatedLinks {
+    font-size: small;
+}
+
+/* unvisited link */
+a:link {
+    color: red;
+  }
+  
+  /* visited link */
+  a:visited {
+    color: green;
+  }
+  
+  /* mouse over link */
+  a:hover {
+    color: hotpink;
+  }
+  
+  /* selected link */
+  a:active {
+    color: blue;
+  }
