@@ -2,10 +2,10 @@ import './InfoCard.css';
 import React, { useState } from "react";
 
 const ListContents = (props: any) => {
-    const { inputList } = props;
+    const { inputList, onClick } = props;
     if (inputList.length > 0) {
         return <ul>
-            {inputList.map((item: any) => <div> <button>{item.name}</button> </div>)}
+            {inputList.map((item: any) => <div> <button onClick={() => {onClick(item)}}>{item.name}</button> </div>)}
         </ul>
     }
     return "Gurp needs to learn more..."
@@ -24,7 +24,7 @@ const ListUrls = (props: any) => {
 }
 
 const InfoCard: React.FC<any> = (props) => {
-    const { node, escapeList, submissionList } = props;
+    const { node } = props;
     const titleName = node ? node.name : 'Select a node';
     const [selectedMove, setSelectedMove] = useState(null);
 
@@ -33,13 +33,14 @@ const InfoCard: React.FC<any> = (props) => {
     let sweeps = []
     let escapes = [];
     let submissions = [];
-    console.log(node);
+    // console.log(node);
 
     if (node && node.links) {
         linkNames = node.links.map((link: any) => link.name);
         sweeps = node.links.filter((link: any) => link.transitionType === 'sweep');
         escapes = node.links.filter((link: any) => link.transitionType === 'escape');
         submissions = node.links.filter((link: any) => link.transitionType === 'submission');
+        // console.log(sweeps);
     } else {
         console.log("Node is null or links array doesn't exist.");
     }
@@ -47,6 +48,14 @@ const InfoCard: React.FC<any> = (props) => {
     // Selecting moves
     let moveDescription = "Gurp needs to make some notes...";
     let moveRelatedLinks: string[] = [];
+
+    if (selectedMove) {
+        moveDescription = selectedMove.description;
+        moveRelatedLinks = selectedMove.relatedLinks;
+
+    }
+
+    console.log(selectedMove);
 
     return (
         <>
@@ -61,7 +70,7 @@ const InfoCard: React.FC<any> = (props) => {
                             Sweeps
                         </div>
                         <div className='infoListItems'>
-                            <ListContents inputList={sweeps} />
+                            <ListContents inputList={sweeps} onClick={setSelectedMove} />
                         </div>
                     </div>
 
@@ -70,7 +79,7 @@ const InfoCard: React.FC<any> = (props) => {
                             Escapes
                         </div>
                         <div className='infoListItems'>
-                            <ListContents inputList={escapes} />
+                            <ListContents inputList={escapes} onClick={setSelectedMove} />
                         </div>
                     </div>
 
@@ -80,7 +89,7 @@ const InfoCard: React.FC<any> = (props) => {
                             Submissions
                         </div>
                         <div className='infoListItems'>
-                            <ListContents inputList={submissions} />
+                            <ListContents inputList={submissions} onClick={setSelectedMove} />
                         </div>
                     </div>
 

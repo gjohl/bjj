@@ -49,7 +49,7 @@ const generateInputData = () => {
             },
             {
                 "id": 40, "name": "Arm bar", "transitionType": "submission",
-                "description": "Gurp's notes onarm bar", "relatedLinks": ["http://www.youtube.com/watch?v=RfwI9V7gKwQ", "http://www.grapplearts.com/Blog/2012/03/a-glossary-of-guards-part-1-the-closed-guard/"],
+                "description": "Gurp's notes on arm bar", "relatedLinks": ["http://www.youtube.com/watch?v=RfwI9V7gKwQ", "http://www.grapplearts.com/Blog/2012/03/a-glossary-of-guards-part-1-the-closed-guard/"],
                 "source": 0, "sourceNode": { "id": 0, "name": "closed-guard" }, "target": 60, "targetNode": { "id": 60, "name": "mount" },
                 "curvature": 0, "color": 'pink'
             },
