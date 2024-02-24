@@ -16,8 +16,6 @@
 }
 
 .infoListItems {
-    display: flex;
-    flex-direction: column;
     text-align: left;
     font-size: small;
     
