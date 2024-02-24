@@ -8,7 +8,7 @@ const ListContents = (props: any) => {
             {inputList.map((item: any) => <div> <button onClick={() => {onClick(item)}}>{item.name}</button> </div>)}
         </ul>
     }
-    return "Gurp needs to learn more..."
+    return "Select a position..."
 }
 
 
@@ -20,7 +20,7 @@ const ListUrls = (props: any) => {
             {inputList.map((item: any) => <div> <a href={item}>{item}</a> </div>)}
         </ul>
     }
-    return "Gurp needs to find some links..."
+    return "Select a move..."
 }
 
 const InfoCard: React.FC<any> = (props) => {
@@ -46,7 +46,7 @@ const InfoCard: React.FC<any> = (props) => {
     }
 
     // Selecting moves
-    let moveDescription = "Gurp needs to make some notes...";
+    let moveDescription = "Select a move...";
     let moveRelatedLinks: string[] = [];
 
     if (selectedMove) {
