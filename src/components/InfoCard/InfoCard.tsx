@@ -5,7 +5,7 @@ const ListContents = (props: any) => {
     const { inputList } = props;
     if (inputList.length > 0) {
         return <ul>
-            {inputList.map((item: any) => <li>{item.name}</li>)}
+            {inputList.map((item: any) => <div> <button>{item.name}</button> </div>)}
         </ul>
     }
     return "Gurp needs to learn more..."
@@ -14,7 +14,7 @@ const ListContents = (props: any) => {
 
 
 const InfoCard: React.FC<any> = (props) => {
-    const { node, sweepList, escapeList, submissionList } = props;
+    const { node, escapeList, submissionList } = props;
     const titleName = node ? node.name : 'Select a node';
 
     let linkNames = [];
@@ -50,7 +50,7 @@ const InfoCard: React.FC<any> = (props) => {
                             Sweeps
                         </div>
                         <div className='infoListItems'>
-                            <ListContents inputList={sweeps}/>
+                            <ListContents inputList={sweeps} />
                         </div>
                     </div>
 
@@ -59,9 +59,7 @@ const InfoCard: React.FC<any> = (props) => {
                             Escapes
                         </div>
                         <div className='infoListItems'>
-                            <ul>
-                                {escapeList.map((item: string) => <li>{item}</li>)}
-                            </ul>
+                            <ListContents inputList={escapes} />
                         </div>
                     </div>
 
@@ -71,9 +69,7 @@ const InfoCard: React.FC<any> = (props) => {
                             Submissions
                         </div>
                         <div className='infoListItems'>
-                            <ul>
-                                {submissionList.map((item: string) => <li>{item}</li>)}
-                            </ul>
+                            <ListContents inputList={submissions} />
                         </div>
                     </div>
 
