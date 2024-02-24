@@ -1,5 +1,5 @@
 import './InfoCard.css';
-import React from "react";
+import React, { useState } from "react";
 
 const ListContents = (props: any) => {
     const { inputList } = props;
@@ -9,17 +9,27 @@ const ListContents = (props: any) => {
         </ul>
     }
     return "Gurp needs to learn more..."
-
 }
 
+
+const ListUrls = (props: any) => {
+    const { inputList } = props;
+    if (inputList.length > 0) {
+        return <ul>
+            
+            {inputList.map((item: any) => <div> <a href={item}>{item}</a> </div>)}
+        </ul>
+    }
+    return "Gurp needs to find some links..."
+}
 
 const InfoCard: React.FC<any> = (props) => {
     const { node, escapeList, submissionList } = props;
     const titleName = node ? node.name : 'Select a node';
+    const [selectedMove, setSelectedMove] = useState(null);
 
+    // Selecting nodes
     let linkNames = [];
-    let linkDescriptions = [];
-    let linkRelatedLinks = [];
     let sweeps = []
     let escapes = [];
     let submissions = [];
@@ -27,15 +37,16 @@ const InfoCard: React.FC<any> = (props) => {
 
     if (node && node.links) {
         linkNames = node.links.map((link: any) => link.name);
-        linkDescriptions = node.links.map((link: any) => link.description);
-        linkRelatedLinks = node.links.map((link: any) => link.relatedLinks);
         sweeps = node.links.filter((link: any) => link.transitionType === 'sweep');
         escapes = node.links.filter((link: any) => link.transitionType === 'escape');
         submissions = node.links.filter((link: any) => link.transitionType === 'submission');
-        console.log(submissions);
     } else {
         console.log("Node is null or links array doesn't exist.");
     }
+
+    // Selecting moves
+    let moveDescription = "Gurp needs to make some notes...";
+    let moveRelatedLinks: string[] = [];
 
     return (
         <>
@@ -88,7 +99,7 @@ const InfoCard: React.FC<any> = (props) => {
                             Gurp's Notes
                         </div>
                         <div className='infoDetailDescription'>
-                            Gurp's notes on the selected move.
+                            {moveDescription}
                         </div>
                     </div>
 
@@ -98,7 +109,7 @@ const InfoCard: React.FC<any> = (props) => {
                         </div>
 
                         <div className='infoDetailRelatedLinks'>
-                            <a href="http://w3schools.com">Link example</a>
+                            <ListUrls inputList={moveRelatedLinks}/>
                         </div>
                     </div>
                 </div>
