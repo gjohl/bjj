@@ -1,15 +1,59 @@
 import './InfoCard.css';
 import React from "react";
 
+const ListContents = (props: any) => {
+    const { inputList, onClick } = props;
+    if (inputList.length > 0) {
+        return <ul>
+            {inputList.map((item: any) => <div> <button onClick={() => {onClick(item)}}>{item.name}</button> </div>)}
+        </ul>
+    }
+    return "Select a position..."
+}
+
+
+const ListUrls = (props: any) => {
+    const { inputList } = props;
+    if (inputList.length > 0) {
+        return <ul>
+            
+            {inputList.map((item: any) => <div> <a href={item}>{item}</a> </div>)}
+        </ul>
+    }
+    return "Select a move..."
+}
 
 const InfoCard: React.FC<any> = (props) => {
-    const { sweepList, escapeList, submissionList } = props;
+    const { node, selectedMove, setSelectedMove } = props;
+    const titleName = node ? node.name : 'Select a node';
+
+    // Selecting nodes
+    let sweeps = []
+    let escapes = [];
+    let submissions = [];
+
+    if (node && node.links) {
+        sweeps = node.links.filter((link: any) => link.transitionType === 'sweep');
+        escapes = node.links.filter((link: any) => link.transitionType === 'escape');
+        submissions = node.links.filter((link: any) => link.transitionType === 'submission');
+    } else {
+        console.log("Node is null or links array doesn't exist.");
+    }
+
+    // Selecting moves
+    let moveDescription = "Select a move...";
+    let moveRelatedLinks: string[] = [];
+
+    if (selectedMove) {
+        moveDescription = selectedMove.description;
+        moveRelatedLinks = selectedMove.relatedLinks;
+    }
 
     return (
         <>
             <div>
                 <div className='infoTitle'>
-                    SIDE MOUNT
+                    {titleName.toUpperCase().replace('-', ' ')}
                 </div>
 
                 <div className="subtitleContainer">
@@ -18,9 +62,7 @@ const InfoCard: React.FC<any> = (props) => {
                             Sweeps
                         </div>
                         <div className='infoListItems'>
-                            <ul>
-                                {sweepList.map((item: string) => <li>{item}</li>)}
-                            </ul>
+                            <ListContents inputList={sweeps} onClick={setSelectedMove} />
                         </div>
                     </div>
 
@@ -29,9 +71,7 @@ const InfoCard: React.FC<any> = (props) => {
                             Escapes
                         </div>
                         <div className='infoListItems'>
-                            <ul>
-                                {escapeList.map((item: string) => <li>{item}</li>)}
-                            </ul>
+                            <ListContents inputList={escapes} onClick={setSelectedMove} />
                         </div>
                     </div>
 
@@ -41,9 +81,7 @@ const InfoCard: React.FC<any> = (props) => {
                             Submissions
                         </div>
                         <div className='infoListItems'>
-                            <ul>
-                                {submissionList.map((item: string) => <li>{item}</li>)}
-                            </ul>
+                            <ListContents inputList={submissions} onClick={setSelectedMove} />
                         </div>
                     </div>
 
@@ -57,24 +95,24 @@ const InfoCard: React.FC<any> = (props) => {
                 </div>
 
                 <div className='subtitleContainer'>
-                <div className='infoSubsectionContainer'>
-                    <div className='infoSubtitle'>
-                        Gurp's Notes
-                    </div>
-                    <div className='infoDetailDescription'>
-                        Gurp's notes on the selected move.
-                    </div>
-                </div>
-
-                <div className='infoSubsectionContainer'>
-                    <div className='infoSubtitle'>
-                        Related links
+                    <div className='infoSubsectionContainer'>
+                        <div className='infoSubtitle'>
+                            Gurp's Notes
+                        </div>
+                        <div className='infoDetailDescription'>
+                            {moveDescription}
+                        </div>
                     </div>
 
-                    <div className='infoDetailRelatedLinks'>
-                        <a href="http://w3schools.com">Link example</a>
+                    <div className='infoSubsectionContainer'>
+                        <div className='infoSubtitle'>
+                            Related links
+                        </div>
+
+                        <div className='infoDetailRelatedLinks'>
+                            <ListUrls inputList={moveRelatedLinks}/>
+                        </div>
                     </div>
-                </div>
                 </div>
             </div>
 

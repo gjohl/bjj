@@ -12,7 +12,7 @@ const App = () => {
 
     return (
         <>
-            <h1>BJJ Notes</h1>
+            <h1>BJJ Taxonomy</h1>
 
             <div>
                 <NetworkGraph

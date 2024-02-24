@@ -5,7 +5,7 @@ import { ForceGraph2D } from 'react-force-graph';
 import InfoCard from './InfoCard/InfoCard';
 
 type Node = { id: number; name: string; val: number; x: number; y: number };
-type Link = { source: number; target: number; };
+// type Link = { source: number; target: number; };
 
 
 const NetworkGraph: React.FC<any> = (props) => {
@@ -15,13 +15,14 @@ const NetworkGraph: React.FC<any> = (props) => {
 
     const [highlightNodes, setHighlightNodes] = useState(new Set());
     const [highlightLinks, setHighlightLinks] = useState(new Set());
-    const [hoverNode, setHoverNode] = useState(null);
+    const [clickNode, setClickNode] = useState(null);
+    const [selectedMove, setSelectedMove] = useState(null);
 
     const paintRing = useCallback((node: Node, ctx: any) => {
         // Add ring just for highlighted nodes
         ctx.beginPath();
         ctx.arc(node.x, node.y, NODE_R * 1.4, 0, 2 * Math.PI, false);
-        ctx.fillStyle = node === hoverNode ? 'red' : 'black';
+        ctx.fillStyle = node === clickNode ? 'red' : 'black';
         ctx.fill();
 
         // Main node
@@ -42,40 +43,38 @@ const NetworkGraph: React.FC<any> = (props) => {
         setHighlightLinks(highlightLinks);
     };
 
-    const handleNodeHover = (node: any) => {
+    const handleNodeClick = (node: any) => {
         highlightNodes.clear();
         highlightLinks.clear();
+        setSelectedMove(null);
         if (node) {
             highlightNodes.add(node);
             node.neighbors.forEach((neighbor: object) => highlightNodes.add(neighbor));
             node.links.forEach((link: object) => highlightLinks.add(link));
         }
-        setHoverNode(node || null);
+        setClickNode(node || null);
         updateHighlight();
     };
 
-    const handleLinkHover = (link: Link) => {
-        highlightNodes.clear();
-        highlightLinks.clear();
-        if (link) {
-            highlightLinks.add(link);
-            highlightNodes.add(link.source);
-            highlightNodes.add(link.target);
-        }
-        updateHighlight();
-    };
-
-    // console.log(highlightNodes);
-    // const nodeList = [...highlightNodes].map((node: Node) => <li>{node.name}</li>)
+    // const handleLinkClick = (link: Link) => {
+    //     highlightNodes.clear();
+    //     highlightLinks.clear();
+    //     setSelectedMove(null);
+    //     if (link) {
+    //         highlightLinks.add(link);
+    //         highlightNodes.add(link.source);
+    //         highlightNodes.add(link.target);
+    //     }
+    //     updateHighlight();
+    // };
 
     return (
         <>
             <div className="card">
                 <InfoCard
-                    sweepList={["Kesa Gatame", "Reverse Kesa Gatame", "Slide knee to mount", "Hug to rear mount"]}
-                    // sweepList={nodeList}
-                    escapeList={["Shrimp to knee shield", "Turn to turtle", "Bridge"]}
-                    submissionList={["Americana", "Kimura"]}
+                    node={clickNode}
+                    selectedMove={selectedMove}
+                    setSelectedMove={setSelectedMove}
                 />
             </div>
 
@@ -110,8 +109,8 @@ const NetworkGraph: React.FC<any> = (props) => {
 
                     // Highlight
                     linkWidth={link => highlightLinks.has(link) ? 10 : 5}
-                    onNodeClick={handleNodeHover}
-                    onLinkClick={handleLinkHover}
+                    onNodeClick={handleNodeClick}
+                    // onLinkClick={handleLinkClick}
                 />
             </div>
         </>
