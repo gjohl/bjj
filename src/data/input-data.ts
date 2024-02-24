@@ -1,6 +1,10 @@
 type InputDataType = {
     nodes: { id: number; name: string; x: number; y: number, neighbors: any[]; links: any[]; }[];
-    links: { id: number; sourceNode: any; source: number; target: number; targetNode: any; curvature: number, color: string }[]
+    links: {
+        id: number; name: string; transitionType: string;
+        description: string; relatedLinks: string[];
+        sourceNode: any; source: number; target: number; targetNode: any; curvature: number, color: string
+    }[]
 };
 
 const generateInputData = () => {
@@ -16,13 +20,39 @@ const generateInputData = () => {
         ],
         "links": [
             // id=0, name="Flower sweep", transitionType=sweep/escape/submission
-            // description="Gurp's notes on this", relatedLinks=["url1.com", "url2.com"]
+            // "description"="Gurp's notes on this", "relatedLinks"=["url1.com", "url2.com"]
             // source=nodeId, sourceNode=node (auto-generate?), target=nodeId, targetNode=node (auto-generate?),
             // curvature, color, 
-            { "id": 0, "source": 0, "sourceNode": { "id": 0, "name": "closed-guard" }, "target": 40, "targetNode": { "id": 40, "name": "side-mount" }, "curvature": 0, "color": 'red' },
-            { "id": 10, "source": 0, "sourceNode": { "id": 0, "name": "closed-guard" }, "target": 40, "targetNode": { "id": 40, "name": "side-mount" }, "curvature": 0.2, "color": 'green' },
-            { "id": 20, "source": 0, "sourceNode": { "id": 0, "name": "closed-guard" }, "target": 40, "targetNode": { "id": 40, "name": "side-mount" }, "curvature": 0.4, "color": 'red' },
-            { "id": 30, "source": 0, "sourceNode": { "id": 0, "name": "closed-guard" }, "target": 60, "targetNode": { "id": 60, "name": "mount" }, "curvature": 0, "color": 'blue' },
+            {
+                "id": 0, "name": "Hip bump sweep", "transitionType": "sweep",
+                "description": "Gurp's notes on hip bump", "relatedLinks": ["http://www.youtube.com/watch?v=RfwI9V7gKwQ", "http://www.grapplearts.com/Blog/2012/03/a-glossary-of-guards-part-1-the-closed-guard/"],
+                "source": 0, "sourceNode": { "id": 0, "name": "closed-guard" }, "target": 40, "targetNode": { "id": 40, "name": "side-mount" },
+                "curvature": 0, "color": 'red'
+            },
+            {
+                "id": 10, "name": "Scissor sweep", "transitionType": "sweep",
+                "description": "Gurp's notes on scissor", "relatedLinks": ["http://www.youtube.com/watch?v=RfwI9V7gKwQ", "http://www.grapplearts.com/Blog/2012/03/a-glossary-of-guards-part-1-the-closed-guard/"],
+                "source": 0, "sourceNode": { "id": 0, "name": "closed-guard" }, "target": 40, "targetNode": { "id": 40, "name": "side-mount" },
+                "curvature": 0.2, "color": 'green'
+            },
+            {
+                "id": 20, "name": "Flower sweep", "transitionType": "sweep",
+                "description": "Gurp's notes on flower", "relatedLinks": ["http://www.youtube.com/watch?v=RfwI9V7gKwQ", "http://www.grapplearts.com/Blog/2012/03/a-glossary-of-guards-part-1-the-closed-guard/"],
+                "source": 0, "sourceNode": { "id": 0, "name": "closed-guard" }, "target": 40, "targetNode": { "id": 40, "name": "side-mount" },
+                "curvature": 0.4, "color": 'red'
+            },
+            {
+                "id": 30, "name": "Guard break and knee slide", "transitionType": "escape",
+                "description": "Gurp's notes on guard break", "relatedLinks": ["http://www.youtube.com/watch?v=RfwI9V7gKwQ", "http://www.grapplearts.com/Blog/2012/03/a-glossary-of-guards-part-1-the-closed-guard/"],
+                "source": 0, "sourceNode": { "id": 0, "name": "closed-guard" }, "target": 60, "targetNode": { "id": 60, "name": "mount" },
+                "curvature": 0, "color": 'blue'
+            },
+            {
+                "id": 40, "name": "Arm bar", "transitionType": "submission",
+                "description": "Gurp's notes onarm bar", "relatedLinks": ["http://www.youtube.com/watch?v=RfwI9V7gKwQ", "http://www.grapplearts.com/Blog/2012/03/a-glossary-of-guards-part-1-the-closed-guard/"],
+                "source": 0, "sourceNode": { "id": 0, "name": "closed-guard" }, "target": 60, "targetNode": { "id": 60, "name": "mount" },
+                "curvature": 0, "color": 'pink'
+            },
             // {"id": 40,"source": {"id": 40, "name": "side-mount" }, "target": {"id": 60, "name": "mount" }},
             // {"id": 50,"source": {"id": 60, "name": "mount" }, "target": {"id": 60, "name": "mount" }}
         ]
