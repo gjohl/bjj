@@ -1,5 +1,5 @@
 import './InfoCard.css';
-import React, { useState } from "react";
+import React from "react";
 
 const ListContents = (props: any) => {
     const { inputList, onClick } = props;
@@ -24,9 +24,8 @@ const ListUrls = (props: any) => {
 }
 
 const InfoCard: React.FC<any> = (props) => {
-    const { node } = props;
+    const { node, selectedMove, setSelectedMove } = props;
     const titleName = node ? node.name : 'Select a node';
-    const [selectedMove, setSelectedMove] = useState(null);
 
     // Selecting nodes
     let linkNames = [];

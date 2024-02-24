@@ -16,6 +16,7 @@ const NetworkGraph: React.FC<any> = (props) => {
     const [highlightNodes, setHighlightNodes] = useState(new Set());
     const [highlightLinks, setHighlightLinks] = useState(new Set());
     const [clickNode, setClickNode] = useState(null);
+    const [selectedMove, setSelectedMove] = useState(null);
 
     const paintRing = useCallback((node: Node, ctx: any) => {
         // Add ring just for highlighted nodes
@@ -45,6 +46,7 @@ const NetworkGraph: React.FC<any> = (props) => {
     const handleNodeClick = (node: any) => {
         highlightNodes.clear();
         highlightLinks.clear();
+        setSelectedMove(null);
         if (node) {
             highlightNodes.add(node);
             node.neighbors.forEach((neighbor: object) => highlightNodes.add(neighbor));
@@ -57,6 +59,7 @@ const NetworkGraph: React.FC<any> = (props) => {
     const handleLinkClick = (link: Link) => {
         highlightNodes.clear();
         highlightLinks.clear();
+        setSelectedMove(null);
         if (link) {
             highlightLinks.add(link);
             highlightNodes.add(link.source);
@@ -65,17 +68,13 @@ const NetworkGraph: React.FC<any> = (props) => {
         updateHighlight();
     };
 
-    // console.log(clickNode);
-    // const nodeList = [...highlightNodes].map((node: Node) => <li>{node.name}</li>)
-
     return (
         <>
             <div className="card">
                 <InfoCard
                     node={clickNode}
-                    sweepList={["Kesa Gatame", "Reverse Kesa Gatame", "Slide knee to mount", "Hug to rear mount"]}
-                    escapeList={["Shrimp to knee shield", "Turn to turtle", "Bridge"]}
-                    submissionList={["Americana", "Kimura"]}
+                    selectedMove={selectedMove}
+                    setSelectedMove={setSelectedMove}
                 />
             </div>
 
@@ -111,7 +110,7 @@ const NetworkGraph: React.FC<any> = (props) => {
                     // Highlight
                     linkWidth={link => highlightLinks.has(link) ? 10 : 5}
                     onNodeClick={handleNodeClick}
-                    onLinkClick={handleLinkClick}
+                    // onLinkClick={handleLinkClick}
                 />
             </div>
         </>
