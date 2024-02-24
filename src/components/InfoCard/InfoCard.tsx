@@ -28,18 +28,14 @@ const InfoCard: React.FC<any> = (props) => {
     const titleName = node ? node.name : 'Select a node';
 
     // Selecting nodes
-    let linkNames = [];
     let sweeps = []
     let escapes = [];
     let submissions = [];
-    // console.log(node);
 
     if (node && node.links) {
-        linkNames = node.links.map((link: any) => link.name);
         sweeps = node.links.filter((link: any) => link.transitionType === 'sweep');
         escapes = node.links.filter((link: any) => link.transitionType === 'escape');
         submissions = node.links.filter((link: any) => link.transitionType === 'submission');
-        // console.log(sweeps);
     } else {
         console.log("Node is null or links array doesn't exist.");
     }
@@ -51,10 +47,7 @@ const InfoCard: React.FC<any> = (props) => {
     if (selectedMove) {
         moveDescription = selectedMove.description;
         moveRelatedLinks = selectedMove.relatedLinks;
-
     }
-
-    console.log(selectedMove);
 
     return (
         <>

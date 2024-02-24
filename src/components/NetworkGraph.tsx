@@ -5,7 +5,7 @@ import { ForceGraph2D } from 'react-force-graph';
 import InfoCard from './InfoCard/InfoCard';
 
 type Node = { id: number; name: string; val: number; x: number; y: number };
-type Link = { source: number; target: number; };
+// type Link = { source: number; target: number; };
 
 
 const NetworkGraph: React.FC<any> = (props) => {
@@ -56,17 +56,17 @@ const NetworkGraph: React.FC<any> = (props) => {
         updateHighlight();
     };
 
-    const handleLinkClick = (link: Link) => {
-        highlightNodes.clear();
-        highlightLinks.clear();
-        setSelectedMove(null);
-        if (link) {
-            highlightLinks.add(link);
-            highlightNodes.add(link.source);
-            highlightNodes.add(link.target);
-        }
-        updateHighlight();
-    };
+    // const handleLinkClick = (link: Link) => {
+    //     highlightNodes.clear();
+    //     highlightLinks.clear();
+    //     setSelectedMove(null);
+    //     if (link) {
+    //         highlightLinks.add(link);
+    //         highlightNodes.add(link.source);
+    //         highlightNodes.add(link.target);
+    //     }
+    //     updateHighlight();
+    // };
 
     return (
         <>
