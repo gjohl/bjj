@@ -4,14 +4,18 @@ import React from "react";
 
 const InfoCard: React.FC<any> = (props) => {
     const { node, sweepList, escapeList, submissionList } = props;
-    const links = node?.links;
-
+    const titleName = node ? node.name : 'Select a node';
+    
+    // console.log(node);
+    // const links = node ? node.links : [];
+    // const linkNames = links ? links.map((link: any) => {link.name}) : [];
+    // console.log(linkNames);
 
     return (
         <>
             <div>
                 <div className='infoTitle'>
-                    {node.name.toUpperCase().replace('-', ' ')}
+                    {titleName.toUpperCase().replace('-', ' ')}
                 </div>
 
                 <div className="subtitleContainer">
