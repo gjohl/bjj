@@ -65,13 +65,14 @@ const NetworkGraph: React.FC<any> = (props) => {
         updateHighlight();
     };
 
-    // console.log(highlightNodes);
+    console.log(clickNode);
     // const nodeList = [...highlightNodes].map((node: Node) => <li>{node.name}</li>)
 
     return (
         <>
             <div className="card">
                 <InfoCard
+                    node={clickNode}
                     sweepList={["Kesa Gatame", "Reverse Kesa Gatame", "Slide knee to mount", "Hug to rear mount"]}
                     // sweepList={nodeList}
                     escapeList={["Shrimp to knee shield", "Turn to turtle", "Bridge"]}

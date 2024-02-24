@@ -3,13 +3,15 @@ import React from "react";
 
 
 const InfoCard: React.FC<any> = (props) => {
-    const { sweepList, escapeList, submissionList } = props;
+    const { node, sweepList, escapeList, submissionList } = props;
+    const links = node?.links;
+
 
     return (
         <>
             <div>
                 <div className='infoTitle'>
-                    SIDE MOUNT
+                    {node.name.toUpperCase().replace('-', ' ')}
                 </div>
 
                 <div className="subtitleContainer">
