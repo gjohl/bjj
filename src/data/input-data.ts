@@ -147,9 +147,9 @@ const generateInputData = () => {
                     "Right hand slowly creep their arm higher up their body",
                     "When above their head, grab their wrist with left hand",
                     "Right hand continues to creep up under their elbow and grab your left wrist",
-                    "Apply Americana"
+                    "Slide their elbow close to their body, keep their hand pinned to the ground and lift the elbow up"
                 ],
-                "relatedLinks": [],
+                "relatedLinks": ["https://www.youtube.com/watch?v=5M1wkbaOYUM"],
                 "source": "mount",
                 "target": "submission",
             },
