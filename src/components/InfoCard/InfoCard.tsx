@@ -25,7 +25,7 @@ const ListUrls = (props: any) => {
 
 const InfoCard: React.FC<any> = (props) => {
     const { node, selectedMove, setSelectedMove } = props;
-    const titleName = node ? node.name : 'Select a node';
+    const titleName = node ? node.id : 'Select a node';
 
     // Selecting nodes
     let sweeps = []

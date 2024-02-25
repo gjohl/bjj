@@ -35,7 +35,7 @@ const NetworkGraph: React.FC<any> = (props) => {
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
         ctx.fillStyle = "white";
-        ctx.fillText(node.name, node.x, node.y);
+        ctx.fillText(node.id, node.x, node.y);
     }, []);
 
     const updateHighlight = () => {
