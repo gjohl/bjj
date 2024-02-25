@@ -52,7 +52,6 @@ const generateInputData = () => {
                 "relatedLinks": ["http://www.youtube.com/watch?v=RfwI9V7gKwQ", "http://www.grapplearts.com/Blog/2012/03/a-glossary-of-guards-part-1-the-closed-guard/"],
                 "source": "closed-guard",
                 "target": "side-mount",
-                "curvature": 0,
             },
             {
                 "id": 10,
@@ -62,7 +61,6 @@ const generateInputData = () => {
                 "relatedLinks": ["http://www.youtube.com/watch?v=RfwI9V7gKwQ", "http://www.grapplearts.com/Blog/2012/03/a-glossary-of-guards-part-1-the-closed-guard/"],
                 "source": "closed-guard",
                 "target": "side-mount",
-                "curvature": 0.2,
             },
             {
                 "id": 20,
@@ -72,7 +70,6 @@ const generateInputData = () => {
                 "relatedLinks": ["http://www.youtube.com/watch?v=RfwI9V7gKwQ", "http://www.grapplearts.com/Blog/2012/03/a-glossary-of-guards-part-1-the-closed-guard/"],
                 "source": "closed-guard",
                 "target": "side-mount",
-                "curvature": 0.4,
             },
             {
                 "id": 30,
@@ -82,7 +79,6 @@ const generateInputData = () => {
                 "relatedLinks": ["http://www.youtube.com/watch?v=RfwI9V7gKwQ", "http://www.grapplearts.com/Blog/2012/03/a-glossary-of-guards-part-1-the-closed-guard/"],
                 "source": "closed-guard",
                 "target": "mount",
-                "curvature": 0,
             },
             {
                 "id": 40,
@@ -99,7 +95,7 @@ const generateInputData = () => {
     // Populate links and neighbors array for each node.
     inputData.links.forEach(link => {
         link.color = transitionColorMap[link.transitionType];
-        link.curvature = Math.random();
+        link.curvature = link.curvature? link.curvature : Math.random();
 
         // Find the source and target nodes of this link
         const a = inputData.nodes.filter(node => node.id === link.source)[0]
