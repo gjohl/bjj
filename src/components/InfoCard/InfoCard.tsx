@@ -33,9 +33,9 @@ const InfoCard: React.FC<any> = (props) => {
     let submissions = [];
 
     if (node && node.links) {
-        sweeps = node.links.filter((link: any) => link.transitionType === 'sweep');
-        escapes = node.links.filter((link: any) => link.transitionType === 'escape');
-        submissions = node.links.filter((link: any) => link.transitionType === 'submission');
+        sweeps = node.links.filter((link: any) => (link.transitionType === 'sweep') && (link.source.id === node.id));
+        escapes = node.links.filter((link: any) => (link.transitionType === 'escape') && (link.source.id === node.id));
+        submissions = node.links.filter((link: any) => (link.transitionType === 'submission') && (link.source.id === node.id));
     } else {
         console.log("Node is null or links array doesn't exist.");
     }
