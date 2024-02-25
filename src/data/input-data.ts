@@ -18,7 +18,7 @@ type InputDataType = {
         id?: number;
         name: string;
         transitionType: string;  // sweep/escape/submission
-        description: string;
+        description: string[];
         relatedLinks: string[];
         source: string;
         target: string;
@@ -42,23 +42,23 @@ const generateInputData = () => {
             { "key": 100, "id": "standing", "x": 0, "y": 70 },
             // { "id": 110, "name": "combat-base", "x": -50, "y": 50},
             // { "id": 120, "name": "headquarters", "x": 50, "y": 100 },
-            { "key": 1000, "id": "submit", "x": 100, "y": 100 },
+            { "key": 1000, "id": "submission", "x": 100, "y": 100 },
         ],
         "links": [
             // Takedowns
             {
                 "name": "Single leg takedown",
                 "transitionType": "sweep",
-                "description": "Gurp's notes on hip bump",
-                "relatedLinks": ["http://www.youtube.com/watch?v=RfwI9V7gKwQ", "http://www.grapplearts.com/Blog/2012/03/a-glossary-of-guards-part-1-the-closed-guard/"],
+                "description": ["Gurp's notes on single leg takedown"],
+                "relatedLinks": [],
                 "source": "standing",
                 "target": "closed-guard",
             },
             {
                 "name": "Double leg takedown",
                 "transitionType": "sweep",
-                "description": "Gurp's notes on hip bump",
-                "relatedLinks": ["http://www.youtube.com/watch?v=RfwI9V7gKwQ", "http://www.grapplearts.com/Blog/2012/03/a-glossary-of-guards-part-1-the-closed-guard/"],
+                "description": ["Gurp's notes on double leg takedown"],
+                "relatedLinks": [],
                 "source": "standing",
                 "target": "closed-guard",
             },
@@ -67,51 +67,91 @@ const generateInputData = () => {
             {
                 "name": "Hip bump sweep",
                 "transitionType": "sweep",
-                "description": "Gurp's notes on hip bump",
-                "relatedLinks": ["http://www.youtube.com/watch?v=RfwI9V7gKwQ", "http://www.grapplearts.com/Blog/2012/03/a-glossary-of-guards-part-1-the-closed-guard/"],
-                "source": "closed-guard",
-                "target": "side-mount",
-            },
-            {
-                "name": "Hip bump sweep",
-                "transitionType": "sweep",
-                "description": "Gurp's notes on hip bump",
-                "relatedLinks": ["http://www.youtube.com/watch?v=RfwI9V7gKwQ", "http://www.grapplearts.com/Blog/2012/03/a-glossary-of-guards-part-1-the-closed-guard/"],
+                "description": ["Gurp's notes on hip bump"],
+                "relatedLinks": [],
                 "source": "closed-guard",
                 "target": "side-mount",
             },
             {
                 "name": "Scissor sweep",
                 "transitionType": "sweep",
-                "description": "Gurp's notes on scissor",
-                "relatedLinks": ["http://www.youtube.com/watch?v=RfwI9V7gKwQ", "http://www.grapplearts.com/Blog/2012/03/a-glossary-of-guards-part-1-the-closed-guard/"],
+                "description": ["Gurp's notes on scissor"],
+                "relatedLinks": [],
                 "source": "closed-guard",
                 "target": "side-mount",
             },
             {
                 "name": "Flower sweep",
                 "transitionType": "sweep",
-                "description": "Gurp's notes on flower",
-                "relatedLinks": ["http://www.youtube.com/watch?v=RfwI9V7gKwQ", "http://www.grapplearts.com/Blog/2012/03/a-glossary-of-guards-part-1-the-closed-guard/"],
+                "description": ["Gurp's notes on flower"],
+                "relatedLinks": [],
                 "source": "closed-guard",
                 "target": "side-mount",
             },
             {
-                "id": 30,
                 "name": "Guard break and knee slide",
                 "transitionType": "escape",
-                "description": "Gurp's notes on guard break",
-                "relatedLinks": ["http://www.youtube.com/watch?v=RfwI9V7gKwQ", "http://www.grapplearts.com/Blog/2012/03/a-glossary-of-guards-part-1-the-closed-guard/"],
+                "description": ["Gurp's notes on guard break", "Step 2"],
+                "relatedLinks": [],
                 "source": "closed-guard",
                 "target": "mount",
             },
             {
                 "name": "Arm bar",
                 "transitionType": "submission",
-                "description": "Gurp's notes on arm bar",
-                "relatedLinks": ["http://www.youtube.com/watch?v=RfwI9V7gKwQ", "http://www.grapplearts.com/Blog/2012/03/a-glossary-of-guards-part-1-the-closed-guard/"],
+                "description": ["Gurp's notes on arm bar"],
+                "relatedLinks": [],
                 "source": "closed-guard",
+                "target": "submission",
+            },
+            // De La Riva Guard
+            {
+                "name": "Sit up sweep",
+                "transitionType": "sweep",
+                "description": [
+                    "(DLR guard sitting on opp's right foot)",
+                    "Opp breaks your grip so grab his sleeve (with your right hand)", 
+                    "Right foot above knee & kick to unbalance", 
+                    "Same time, sit up & left foot hit the ground",
+                    "Hug their knee with left arm",
+                    "Pass their sleeve from your right hand to left hand",
+                    "Grab their collar with right hand, flare elbow out and pull",
+                    "Left knee between their legs, Right leg post",
+                    "Slide around to seatbelt side control"
+                ],
+                "relatedLinks": ["https://www.youtube.com/watch?v=2PRF0gb-Bh0"],
+                "source": "de-la-riva-guard",
+                "target": "side-mount",
+            },
+            {
+                "name": "Sweep to mount",
+                "transitionType": "sweep",
+                "description": [
+                    "(DLR guard sitting on opp's right foot with right hand grip on lapel)",
+                    "Right foot above knee & kick to unbalance", 
+                    "Right foot back on hip as they step forward again",
+                    "Pull to unbalance them forwards until their hips are above yours",
+                    "Right foot pushes up and over, staying on their left hip",
+                    "Come over into mount"
+            
+                ],
+                "relatedLinks": ["https://www.youtube.com/watch?v=EgnTI2PXheE"],
+                "source": "de-la-riva-guard",
                 "target": "mount",
+            },
+            // Mount
+            {
+                "name": "Americana from mount",
+                "transitionType": "submission",
+                "description": [
+                    "Right hand slowly creep their arm higher up their body",
+                    "When above their head, grab their wrist with left hand",
+                    "Right hand continues to creep up under their elbow and grab your left wrist",
+                    "Apply Americana"
+                ],
+                "relatedLinks": [],
+                "source": "mount",
+                "target": "submission",
             },
         ]
     };
