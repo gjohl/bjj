@@ -14,9 +14,16 @@ const generateInputData = () => {
             //  x, y, neighbours, links
             { "id": 0, "name": "closed-guard", "x": 0, "y": 0, "neighbors": [], "links": [] },
             { "id": 10, "name": "half-guard", "x": 50, "y": 0, "neighbors": [], "links": [] },
-            { "id": 11, "name": "half-guard-top", "x": 50, "y": 1, "neighbors": [], "links": [] },
+            { "id": 20, "name": "open-guard", "x": 100, "y": 0, "neighbors": [], "links": [] },
+            { "id": 30, "name": "de-la-riva-guard", "x": 100, "y": 0, "neighbors": [], "links": [] },
             { "id": 40, "name": "side-mount", "x": 0, "y": -50, "neighbors": [], "links": [] },
+            { "id": 50, "name": "knee-on-belly", "x": 0, "y": -100, "neighbors": [], "links": [] },
             { "id": 60, "name": "mount", "x": 0, "y": 100, "neighbors": [], "links": [] },
+            { "id": 70, "name": "rear-mount", "x": 0, "y": 150, "neighbors": [], "links": [] },
+            { "id": 80, "name": "turtle", "x": 0, "y": 200, "neighbors": [], "links": [] },
+            { "id": 100, "name": "standing", "x": 0, "y": 70, "neighbors": [], "links": [] },
+            // { "id": 110, "name": "combat-base", "x": -50, "y": 50, "neighbors": [], "links": [] },
+            // { "id": 120, "name": "headquarters", "x": 50, "y": 100, "neighbors": [], "links": [] },
         ],
         "links": [
             // id=0, name="Flower sweep", transitionType=sweep/escape/submission
