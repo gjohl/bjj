@@ -23,9 +23,19 @@ const ListUrls = (props: any) => {
     return "Select a move..."
 }
 
+const ListDescription = (props: any) => {
+    const { inputList } = props;
+    if (inputList.length > 0) {
+        return <ol>
+            {inputList.map((item: any) => <div> <li>{item}</li> </div>)}
+        </ol>
+    }
+    return "Select a move..."
+}
+
 const InfoCard: React.FC<any> = (props) => {
     const { node, selectedMove, setSelectedMove } = props;
-    const titleName = node ? node.name : 'Select a node';
+    const titleName = node ? node.id : 'Select a node';
 
     // Selecting nodes
     let sweeps = []
@@ -33,15 +43,15 @@ const InfoCard: React.FC<any> = (props) => {
     let submissions = [];
 
     if (node && node.links) {
-        sweeps = node.links.filter((link: any) => link.transitionType === 'sweep');
-        escapes = node.links.filter((link: any) => link.transitionType === 'escape');
-        submissions = node.links.filter((link: any) => link.transitionType === 'submission');
+        sweeps = node.links.filter((link: any) => (link.transitionType === 'sweep') && (link.source.id === node.id));
+        escapes = node.links.filter((link: any) => (link.transitionType === 'escape') && (link.source.id === node.id));
+        submissions = node.links.filter((link: any) => (link.transitionType === 'submission') && (link.source.id === node.id));
     } else {
         console.log("Node is null or links array doesn't exist.");
     }
 
     // Selecting moves
-    let moveDescription = "Select a move...";
+    let moveDescription: string[] = [];
     let moveRelatedLinks: string[] = [];
 
     if (selectedMove) {
@@ -100,7 +110,7 @@ const InfoCard: React.FC<any> = (props) => {
                             Gurp's Notes
                         </div>
                         <div className='infoDetailDescription'>
-                            {moveDescription}
+                            <ListDescription inputList={moveDescription} />
                         </div>
                     </div>
 
@@ -110,7 +120,7 @@ const InfoCard: React.FC<any> = (props) => {
                         </div>
 
                         <div className='infoDetailRelatedLinks'>
-                            <ListUrls inputList={moveRelatedLinks}/>
+                            <ListUrls inputList={moveRelatedLinks} />
                         </div>
                     </div>
                 </div>
