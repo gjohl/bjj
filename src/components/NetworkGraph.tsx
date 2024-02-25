@@ -19,6 +19,7 @@ const NetworkGraph: React.FC<any> = (props) => {
     const [selectedMove, setSelectedMove] = useState(null);
 
     const paintRing = useCallback((node: Node, ctx: any) => {
+        const nodeText = node.id.split('-').reduce((response,word)=> response+=word.slice(0,1),'')
         // Add ring just for highlighted nodes
         ctx.beginPath();
         ctx.arc(node.x, node.y, NODE_R * 1.4, 0, 2 * Math.PI, false);
@@ -35,7 +36,7 @@ const NetworkGraph: React.FC<any> = (props) => {
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
         ctx.fillStyle = "white";
-        ctx.fillText(node.id, node.x, node.y);
+        ctx.fillText(nodeText, node.x, node.y);
     }, []);
 
     const updateHighlight = () => {
@@ -67,6 +68,8 @@ const NetworkGraph: React.FC<any> = (props) => {
     //     }
     //     updateHighlight();
     // };
+
+    console.log(graphData)
 
     return (
         <>

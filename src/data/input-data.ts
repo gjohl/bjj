@@ -15,7 +15,7 @@ type InputDataType = {
         links?: any[];
     }[];
     links: {
-        id: number;
+        id?: number;
         name: string;
         transitionType: string;  // sweep/escape/submission
         description: string;
@@ -42,10 +42,29 @@ const generateInputData = () => {
             { "key": 100, "id": "standing", "x": 0, "y": 70 },
             // { "id": 110, "name": "combat-base", "x": -50, "y": 50},
             // { "id": 120, "name": "headquarters", "x": 50, "y": 100 },
+            { "key": 1000, "id": "submit", "x": 100, "y": 100 },
         ],
         "links": [
+            // Takedowns
             {
-                "id": 0,
+                "name": "Single leg takedown",
+                "transitionType": "sweep",
+                "description": "Gurp's notes on hip bump",
+                "relatedLinks": ["http://www.youtube.com/watch?v=RfwI9V7gKwQ", "http://www.grapplearts.com/Blog/2012/03/a-glossary-of-guards-part-1-the-closed-guard/"],
+                "source": "standing",
+                "target": "closed-guard",
+            },
+            {
+                "name": "Double leg takedown",
+                "transitionType": "sweep",
+                "description": "Gurp's notes on hip bump",
+                "relatedLinks": ["http://www.youtube.com/watch?v=RfwI9V7gKwQ", "http://www.grapplearts.com/Blog/2012/03/a-glossary-of-guards-part-1-the-closed-guard/"],
+                "source": "standing",
+                "target": "closed-guard",
+            },
+
+            // Closed guard
+            {
                 "name": "Hip bump sweep",
                 "transitionType": "sweep",
                 "description": "Gurp's notes on hip bump",
@@ -54,7 +73,14 @@ const generateInputData = () => {
                 "target": "side-mount",
             },
             {
-                "id": 10,
+                "name": "Hip bump sweep",
+                "transitionType": "sweep",
+                "description": "Gurp's notes on hip bump",
+                "relatedLinks": ["http://www.youtube.com/watch?v=RfwI9V7gKwQ", "http://www.grapplearts.com/Blog/2012/03/a-glossary-of-guards-part-1-the-closed-guard/"],
+                "source": "closed-guard",
+                "target": "side-mount",
+            },
+            {
                 "name": "Scissor sweep",
                 "transitionType": "sweep",
                 "description": "Gurp's notes on scissor",
@@ -63,7 +89,6 @@ const generateInputData = () => {
                 "target": "side-mount",
             },
             {
-                "id": 20,
                 "name": "Flower sweep",
                 "transitionType": "sweep",
                 "description": "Gurp's notes on flower",
@@ -81,7 +106,6 @@ const generateInputData = () => {
                 "target": "mount",
             },
             {
-                "id": 40,
                 "name": "Arm bar",
                 "transitionType": "submission",
                 "description": "Gurp's notes on arm bar",
@@ -90,10 +114,12 @@ const generateInputData = () => {
                 "target": "mount",
             },
         ]
-    }
-        ;
+    };
+
     // Populate links and neighbors array for each node.
+    let counter = 0;
     inputData.links.forEach(link => {
+        link.id = counter;
         link.color = transitionColorMap[link.transitionType];
         link.curvature = link.curvature? link.curvature : Math.random();
 
@@ -116,6 +142,8 @@ const generateInputData = () => {
         // Add the current link to the links array of each node
         a.links.push(link);
         b.links.push(link);
+
+        counter = counter + 1
     });
 
     return inputData;
