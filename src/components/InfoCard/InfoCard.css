@@ -1,8 +1,3 @@
-.card {
-    padding: 2em;
-    background-color: #1a1a1a;
-  }
-
 .infoTitle {
     text-align: center;
     font-size: large;
@@ -10,40 +5,37 @@
 }
 
 .infoSubTitle {
-    text-align: left;
+    text-align: center;
     font-size: medium;
     font-weight: bold;
+    /* flex: 1; */
 }
 
 .infoListItems {
-    text-align: left;
     font-size: small;
 }
 
-.subtitleContainer {
+.sectionContainer {
     display: flex;
     justify-content: space-around;
     flex-direction: row;
 }
 
 .infoDetailPanel {
-    text-align: left;
-}
-
-.infoDetailTitle {
     text-align: center;
-    font-size: large;
-    font-weight: bolder;
-
 }
 
 .infoSubsectionContainer {
-    display: flex;
-    flex-direction: column;
+    text-align: center;
+    width: '100%';
 }
 
 .infoDetailDescription {
     font-size: small;
+    text-align: left;
+    /* background-color: blue; */
+    /* overflow: scroll; */
+    /* height: 140px; */
 }
 
 .infoDetailRelatedLinks {
@@ -53,19 +45,19 @@
 /* unvisited link */
 a:link {
     color: red;
-  }
-  
-  /* visited link */
-  a:visited {
+}
+
+/* visited link */
+a:visited {
     color: green;
-  }
-  
-  /* mouse over link */
-  a:hover {
+}
+
+/* mouse over link */
+a:hover {
     color: hotpink;
-  }
-  
-  /* selected link */
-  a:active {
+}
+
+/* selected link */
+a:active {
     color: blue;
-  }
+}

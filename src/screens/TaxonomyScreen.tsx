@@ -1,14 +1,15 @@
-import './NetworkGraph.css';
-
 import React, { useCallback, useState } from 'react';
-import { ForceGraph2D } from 'react-force-graph';
-import InfoCard from './InfoCard/InfoCard';
+import Paper from '@mui/material/Paper';
+
+import InfoCard from '../components/InfoCard/InfoCard';
+import NetworkGraph from '../components/Graph/NetworkGraph';
+
 
 type Node = { key: number; id: string; val: number; x: number; y: number };
-// type Link = { source: number; target: number; };
+type Link = { source: string; target: string; };
 
 
-const NetworkGraph: React.FC<any> = (props) => {
+const TaxonomyScreen: React.FC<any> = (props) => {
     const { graphData } = props;
 
     const NODE_R = 8;
@@ -19,7 +20,7 @@ const NetworkGraph: React.FC<any> = (props) => {
     const [selectedMove, setSelectedMove] = useState(null);
 
     const paintRing = useCallback((node: Node, ctx: any) => {
-        const nodeText = node.id.split('-').reduce((response,word)=> response+=word.slice(0,1),'')
+        const nodeText = node.id.split('-').reduce((response, word) => response += word.slice(0, 1), '')
         // Add ring just for highlighted nodes
         ctx.beginPath();
         ctx.arc(node.x, node.y, NODE_R * 1.4, 0, 2 * Math.PI, false);
@@ -73,49 +74,35 @@ const NetworkGraph: React.FC<any> = (props) => {
 
     return (
         <>
-            <div className="card">
-                <InfoCard
-                    node={clickNode}
-                    selectedMove={selectedMove}
-                    setSelectedMove={setSelectedMove}
-                />
-            </div>
-
             <div>
-                <ForceGraph2D
-                    graphData={graphData}
-                    nodeAutoColorBy={"group"}
-                    enableNodeDrag={false}
+                <div>
+                    <InfoCard
+                        node={clickNode}
+                        selectedMove={selectedMove}
+                        setSelectedMove={setSelectedMove}
+                    />
+                </div>
 
-                    //  For debugging UI
-                    // backgroundColor='white'
-                    // height={500}
-                    // width={500}
 
-                    // Zoom-to-fit
-                    // ref={fgRef}
-                    // onEngineStop={() => fgRef.current?.zoomToFit(400)}
 
-                    // Link attributes        
-                    // linkWidth={15}
-                    linkCurvature={"curvature"}
-                    linkDirectionalArrowLength={10}
-                    linkDirectionalArrowRelPos={0.5}
-                    linkDirectionalParticles={3}
+                <div>
+                    <Paper elevation={20} style={{ margin: 5 }} square={false}>
+                        <NetworkGraph
+                            graphData={graphData}
+                            nodeRelSize={NODE_R}
+                            nodeCanvasObjectMode={(node: Node) => highlightNodes.has(node) ? 'before' : 'after'}
+                            nodeCanvasObject={paintRing}
+                            linkWidth={(link: Link) => highlightLinks.has(link) ? 10 : 5}
+                            onNodeClick={handleNodeClick}
+                            // onLinkClick={handleLinkClick}
+                            onLinkClick={() => { }}
+                        />
+                    </Paper>
 
-                    // Text in nodes
-                    nodeRelSize={NODE_R}
-                    autoPauseRedraw={false}
-                    // nodeCanvasObjectMode={() => 'before' }
-                    nodeCanvasObjectMode={node => highlightNodes.has(node) ? 'before' : 'after'}
-                    nodeCanvasObject={paintRing}
-
-                    // Highlight
-                    linkWidth={link => highlightLinks.has(link) ? 10 : 5}
-                    onNodeClick={handleNodeClick}
-                    // onLinkClick={handleLinkClick}
-                />
+                </div>
             </div>
+
+
         </>
 
 
@@ -123,4 +110,4 @@ const NetworkGraph: React.FC<any> = (props) => {
     )
 }
 
-export default NetworkGraph;
+export default TaxonomyScreen;

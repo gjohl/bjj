@@ -1,37 +1,10 @@
 import './InfoCard.css';
 import React from "react";
+import Paper from '@mui/material/Paper';
 
-const ListContents = (props: any) => {
-    const { inputList, onClick } = props;
-    if (inputList.length > 0) {
-        return <ul>
-            {inputList.map((item: any) => <div> <button onClick={() => {onClick(item)}}>{item.name}</button> </div>)}
-        </ul>
-    }
-    return "Select a position..."
-}
+import PositionSection from './PositionSection';
+import MoveDetailsSection from './MoveDetailsSection';
 
-
-const ListUrls = (props: any) => {
-    const { inputList } = props;
-    if (inputList.length > 0) {
-        return <ul>
-            
-            {inputList.map((item: any) => <div> <a href={item}>{item}</a> </div>)}
-        </ul>
-    }
-    return "Select a move..."
-}
-
-const ListDescription = (props: any) => {
-    const { inputList } = props;
-    if (inputList.length > 0) {
-        return <ol>
-            {inputList.map((item: any) => <div> <li>{item}</li> </div>)}
-        </ol>
-    }
-    return "Select a move..."
-}
 
 const InfoCard: React.FC<any> = (props) => {
     const { node, selectedMove, setSelectedMove } = props;
@@ -61,70 +34,24 @@ const InfoCard: React.FC<any> = (props) => {
 
     return (
         <>
-            <div>
-                <div className='infoTitle'>
-                    {titleName.toUpperCase().replace('-', ' ')}
-                </div>
+            <Paper elevation={20} style={{margin: 5, height: "20%"}}>
+                <PositionSection
+                    titleName={titleName}
+                    sweeps={sweeps}
+                    escapes={escapes}
+                    submissions={submissions}
+                    setSelectedMove={setSelectedMove}
+                />
 
-                <div className="subtitleContainer">
-                    <div className='infoSubsectionContainer'>
-                        <div className='infoSubtitle'>
-                            Sweeps
-                        </div>
-                        <div className='infoListItems'>
-                            <ListContents inputList={sweeps} onClick={setSelectedMove} />
-                        </div>
-                    </div>
+            </Paper>
 
-                    <div className='infoSubsectionContainer'>
-                        <div className='infoSubtitle'>
-                            Escapes
-                        </div>
-                        <div className='infoListItems'>
-                            <ListContents inputList={escapes} onClick={setSelectedMove} />
-                        </div>
-                    </div>
+            <Paper elevation={20} style={{margin: 5, height: "20%"}}>
+                <MoveDetailsSection
+                    moveDescription={moveDescription}
+                    moveRelatedLinks={moveRelatedLinks}
+                />
+            </Paper>
 
-
-                    <div className='infoSubsectionContainer'>
-                        <div className='infoSubtitle'>
-                            Submissions
-                        </div>
-                        <div className='infoListItems'>
-                            <ListContents inputList={submissions} onClick={setSelectedMove} />
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
-
-            <div className='infoDetailPanel'>
-                <div className='infoDetailTitle'>
-                    MOVE DETAILS
-                </div>
-
-                <div className='subtitleContainer'>
-                    <div className='infoSubsectionContainer'>
-                        <div className='infoSubtitle'>
-                            Gurp's Notes
-                        </div>
-                        <div className='infoDetailDescription'>
-                            <ListDescription inputList={moveDescription} />
-                        </div>
-                    </div>
-
-                    <div className='infoSubsectionContainer'>
-                        <div className='infoSubtitle'>
-                            Related links
-                        </div>
-
-                        <div className='infoDetailRelatedLinks'>
-                            <ListUrls inputList={moveRelatedLinks} />
-                        </div>
-                    </div>
-                </div>
-            </div>
 
         </>
     )
