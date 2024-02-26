@@ -8,6 +8,7 @@
     text-align: center;
     font-size: medium;
     font-weight: bold;
+    /* flex: 1; */
 }
 
 .infoListItems {
@@ -25,14 +26,18 @@
 }
 
 .infoSubsectionContainer {
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    flex: 1;
+    flex: 1; */
 }
 
 .infoDetailDescription {
     font-size: small;
     text-align: left;
+    /* overflow: scroll; */
+    /* background-color: blue; */
+    height: 100px;
+    /* flex: 5; */
 }
 
 .infoDetailRelatedLinks {
