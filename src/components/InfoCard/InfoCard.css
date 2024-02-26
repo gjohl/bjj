@@ -11,7 +11,6 @@
 }
 
 .infoListItems {
-    text-align: left;
     font-size: small;
 }
 
@@ -33,6 +32,7 @@
 
 .infoDetailDescription {
     font-size: small;
+    text-align: left;
 }
 
 .infoDetailRelatedLinks {
