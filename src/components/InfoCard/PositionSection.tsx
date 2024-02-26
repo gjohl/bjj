@@ -12,7 +12,7 @@ const PositionSection = (props) => {
                 {titleName.toUpperCase().replace('-', ' ')}
             </div>
 
-            <div className="subtitleContainer">
+            <div className="sectionContainer">
                 <div className='infoSubsectionContainer'>
                     <div className='infoSubtitle'>
                         Sweeps

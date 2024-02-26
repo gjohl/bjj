@@ -15,7 +15,7 @@
     font-size: small;
 }
 
-.subtitleContainer {
+.sectionContainer {
     display: flex;
     justify-content: space-around;
     flex-direction: row;
@@ -26,18 +26,16 @@
 }
 
 .infoSubsectionContainer {
-    /* display: flex;
-    flex-direction: column;
-    flex: 1; */
+    text-align: center;
+    width: '100%';
 }
 
 .infoDetailDescription {
     font-size: small;
     text-align: left;
-    /* overflow: scroll; */
+    overflow: scroll;
     /* background-color: blue; */
-    height: 100px;
-    /* flex: 5; */
+    height: 140px;
 }
 
 .infoDetailRelatedLinks {

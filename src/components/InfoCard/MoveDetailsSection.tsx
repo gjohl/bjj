@@ -6,7 +6,7 @@ const MoveDetailsSection = (props) => {
                 MOVE DETAILS
             </div>
 
-            <div className='subtitleContainer'>
+            <div className='sectionContainer'>
                 <div className='infoSubsectionContainer'>
                     <div className='infoSubtitle'>
                         Gurp's Notes
