@@ -12,6 +12,7 @@ const NetworkGraph: React.FC<any> = (props) => {
         onNodeClick,
         onLinkClick
     } = props;
+
     return (
         <ForceGraph2D
             graphData={graphData}
@@ -19,13 +20,13 @@ const NetworkGraph: React.FC<any> = (props) => {
             enableNodeDrag={false}
 
             //  For debugging UI
-            // backgroundColor='white'
-            // height={500}
-            // width={500}
+            backgroundColor='white'
+            height={500}
+            width={900}
 
             // Zoom-to-fit
             // ref={fgRef}
-            // onEngineStop={() => fgRef.current?.zoomToFit(400)}
+            // onEngineStop={() => fgRef.current?.zoomToFit(1000)}
 
             // Link attributes        
             // linkWidth={15}

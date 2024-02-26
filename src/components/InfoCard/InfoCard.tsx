@@ -1,5 +1,7 @@
 import './InfoCard.css';
 import React from "react";
+import Paper from '@mui/material/Paper';
+
 import PositionSection from './PositionSection';
 import MoveDetailsSection from './MoveDetailsSection';
 
@@ -32,19 +34,23 @@ const InfoCard: React.FC<any> = (props) => {
 
     return (
         <>
-            <PositionSection
-                titleName={titleName}
-                sweeps={sweeps}
-                escapes={escapes}
-                submissions={submissions}
-                setSelectedMove={setSelectedMove}
-            />
+            <Paper elevation={20} style={{margin: 5, height: "20%"}}>
+                <PositionSection
+                    titleName={titleName}
+                    sweeps={sweeps}
+                    escapes={escapes}
+                    submissions={submissions}
+                    setSelectedMove={setSelectedMove}
+                />
 
-            <MoveDetailsSection
-                moveDescription={moveDescription}
-                moveRelatedLinks={moveRelatedLinks}
-            />
+            </Paper>
 
+            <Paper elevation={20} style={{margin: 5, height: "20%"}}>
+                <MoveDetailsSection
+                    moveDescription={moveDescription}
+                    moveRelatedLinks={moveRelatedLinks}
+                />
+            </Paper>
 
 
         </>

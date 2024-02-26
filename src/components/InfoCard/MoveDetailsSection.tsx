@@ -2,7 +2,7 @@ const MoveDetailsSection = (props) => {
     const { moveDescription, moveRelatedLinks } = props;
     return (
         <div className='infoDetailPanel'>
-            <div className='infoDetailTitle'>
+            <div className='infoTitle'>
                 MOVE DETAILS
             </div>
 
