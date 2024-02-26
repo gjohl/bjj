@@ -1,4 +1,4 @@
-const MoveDetailsSection = (props) => {
+const MoveDetailsSection = (props: any) => {
     const { moveDescription, moveRelatedLinks } = props;
     return (
         <div className='infoDetailPanel'>

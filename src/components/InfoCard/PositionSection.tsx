@@ -1,4 +1,4 @@
-const PositionSection = (props) => {
+const PositionSection = (props: any) => {
     const {
         titleName,
         sweeps,
@@ -9,7 +9,7 @@ const PositionSection = (props) => {
     return (
         <div>
             <div className='infoTitle'>
-                {titleName.toUpperCase().replace('-', ' ')}
+                {titleName.replaceAll('-', ' ').toUpperCase()}
             </div>
 
             <div className="sectionContainer">

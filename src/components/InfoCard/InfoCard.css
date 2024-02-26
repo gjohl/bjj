@@ -33,9 +33,9 @@
 .infoDetailDescription {
     font-size: small;
     text-align: left;
-    overflow: scroll;
     /* background-color: blue; */
-    height: 140px;
+    /* overflow: scroll; */
+    /* height: 140px; */
 }
 
 .infoDetailRelatedLinks {

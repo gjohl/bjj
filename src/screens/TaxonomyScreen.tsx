@@ -1,5 +1,3 @@
-import './TaxonomyScreen.css';
-
 import React, { useCallback, useState } from 'react';
 import Paper from '@mui/material/Paper';
 
@@ -8,7 +6,7 @@ import NetworkGraph from '../components/Graph/NetworkGraph';
 
 
 type Node = { key: number; id: string; val: number; x: number; y: number };
-// type Link = { source: number; target: number; };
+type Link = { source: string; target: string; };
 
 
 const TaxonomyScreen: React.FC<any> = (props) => {
@@ -92,9 +90,9 @@ const TaxonomyScreen: React.FC<any> = (props) => {
                         <NetworkGraph
                             graphData={graphData}
                             nodeRelSize={NODE_R}
-                            nodeCanvasObjectMode={node => highlightNodes.has(node) ? 'before' : 'after'}
+                            nodeCanvasObjectMode={(node: Node) => highlightNodes.has(node) ? 'before' : 'after'}
                             nodeCanvasObject={paintRing}
-                            linkWidth={link => highlightLinks.has(link) ? 10 : 5}
+                            linkWidth={(link: Link) => highlightLinks.has(link) ? 10 : 5}
                             onNodeClick={handleNodeClick}
                             // onLinkClick={handleLinkClick}
                             onLinkClick={() => { }}
