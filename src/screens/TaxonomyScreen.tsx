@@ -1,14 +1,14 @@
-import './NetworkGraph.css';
+import './TaxonomyScreen.css';
 
 import React, { useCallback, useState } from 'react';
-import { ForceGraph2D } from 'react-force-graph';
-import InfoCard from './InfoCard/InfoCard';
+import InfoCard from '../components/InfoCard/InfoCard';
+import NetworkGraph from '../components/Graph/NetworkGraph';
 
 type Node = { key: number; id: string; val: number; x: number; y: number };
 // type Link = { source: number; target: number; };
 
 
-const NetworkGraph: React.FC<any> = (props) => {
+const TaxonomyScreen: React.FC<any> = (props) => {
     const { graphData } = props;
 
     const NODE_R = 8;
@@ -82,38 +82,15 @@ const NetworkGraph: React.FC<any> = (props) => {
             </div>
 
             <div>
-                <ForceGraph2D
-                    graphData={graphData}
-                    nodeAutoColorBy={"group"}
-                    enableNodeDrag={false}
-
-                    //  For debugging UI
-                    // backgroundColor='white'
-                    // height={500}
-                    // width={500}
-
-                    // Zoom-to-fit
-                    // ref={fgRef}
-                    // onEngineStop={() => fgRef.current?.zoomToFit(400)}
-
-                    // Link attributes        
-                    // linkWidth={15}
-                    linkCurvature={"curvature"}
-                    linkDirectionalArrowLength={10}
-                    linkDirectionalArrowRelPos={0.5}
-                    linkDirectionalParticles={3}
-
-                    // Text in nodes
-                    nodeRelSize={NODE_R}
-                    autoPauseRedraw={false}
-                    // nodeCanvasObjectMode={() => 'before' }
-                    nodeCanvasObjectMode={node => highlightNodes.has(node) ? 'before' : 'after'}
-                    nodeCanvasObject={paintRing}
-
-                    // Highlight
-                    linkWidth={link => highlightLinks.has(link) ? 10 : 5}
-                    onNodeClick={handleNodeClick}
-                    // onLinkClick={handleLinkClick}
+                <NetworkGraph 
+                        graphData={graphData}
+                        nodeRelSize={NODE_R}
+                        nodeCanvasObjectMode={node => highlightNodes.has(node) ? 'before' : 'after'}
+                        nodeCanvasObject={paintRing}
+                        linkWidth={link => highlightLinks.has(link) ? 10 : 5}
+                        onNodeClick={handleNodeClick}
+                        // onLinkClick={handleLinkClick}
+                        onLinkClick={() => {}}
                 />
             </div>
         </>
@@ -123,4 +100,4 @@ const NetworkGraph: React.FC<any> = (props) => {
     )
 }
 
-export default NetworkGraph;
+export default TaxonomyScreen;
