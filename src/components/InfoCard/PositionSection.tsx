@@ -1,14 +1,3 @@
-const ListContents = (props: any) => {
-    const { inputList, onClick } = props;
-    if (inputList.length > 0) {
-        return <ul>
-            {inputList.map((item: any) => <div> <button onClick={() => { onClick(item) }}>{item.name}</button> </div>)}
-        </ul>
-    }
-    return "Select a position..."
-}
-
-
 const PositionSection = (props) => {
     const {
         titleName,
@@ -57,5 +46,17 @@ const PositionSection = (props) => {
         </div>
     )
 };
+
+
+const ListContents = (props: any) => {
+    const { inputList, onClick } = props;
+    if (inputList.length > 0) {
+        return <ul>
+            {inputList.map((item: any) => <div> <button onClick={() => { onClick(item) }}>{item.name}</button> </div>)}
+        </ul>
+    }
+    return "Select a position..."
+};
+
 
 export default PositionSection;
