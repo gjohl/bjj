@@ -1,15 +1,6 @@
 import './InfoCard.css';
 import React from "react";
-
-const ListContents = (props: any) => {
-    const { inputList, onClick } = props;
-    if (inputList.length > 0) {
-        return <ul>
-            {inputList.map((item: any) => <div> <button onClick={() => {onClick(item)}}>{item.name}</button> </div>)}
-        </ul>
-    }
-    return "Select a position..."
-}
+import PositionSection from './PositionSection';
 
 
 const ListUrls = (props: any) => {
@@ -61,43 +52,13 @@ const InfoCard: React.FC<any> = (props) => {
 
     return (
         <>
-            <div>
-                <div className='infoTitle'>
-                    {titleName.toUpperCase().replace('-', ' ')}
-                </div>
-
-                <div className="subtitleContainer">
-                    <div className='infoSubsectionContainer'>
-                        <div className='infoSubtitle'>
-                            Sweeps
-                        </div>
-                        <div className='infoListItems'>
-                            <ListContents inputList={sweeps} onClick={setSelectedMove} />
-                        </div>
-                    </div>
-
-                    <div className='infoSubsectionContainer'>
-                        <div className='infoSubtitle'>
-                            Escapes
-                        </div>
-                        <div className='infoListItems'>
-                            <ListContents inputList={escapes} onClick={setSelectedMove} />
-                        </div>
-                    </div>
-
-
-                    <div className='infoSubsectionContainer'>
-                        <div className='infoSubtitle'>
-                            Submissions
-                        </div>
-                        <div className='infoListItems'>
-                            <ListContents inputList={submissions} onClick={setSelectedMove} />
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
+            <PositionSection 
+              titleName={titleName}
+              sweeps={sweeps}
+              escapes={escapes}
+              submissions={submissions}
+              setSelectedMove={setSelectedMove}
+            />
 
             <div className='infoDetailPanel'>
                 <div className='infoDetailTitle'>
