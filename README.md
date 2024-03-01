@@ -3,12 +3,9 @@ This is a network graph showing the sweeps, escapes and submission paths between
 
 
 ## Developer Notes
-This project used Typescript and ESLint.
-To lint:
-```
-npm run lint
-```
+This project uses React (with Typescript) and Vite.js.
 
+### Build
 To run locally:
 ```
 npm run dev
@@ -23,6 +20,15 @@ To preview the current build
 ```
 npm run preview
 ```
+
+### Style
+This project uses ESLint.
+
+To lint:
+```
+npm run lint
+```
+
 
 ## How to Contribute
 To do...
