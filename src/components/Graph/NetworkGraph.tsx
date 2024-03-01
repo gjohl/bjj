@@ -45,6 +45,10 @@ const NetworkGraph: React.FC<any> = (props) => {
             linkWidth={linkWidth}
             onNodeClick={onNodeClick}
             onLinkClick={onLinkClick}
+
+            d3AlphaDecay={1}
+            enablePanInteraction={false}
+            enableZoomInteraction={false}
         />
     )
 

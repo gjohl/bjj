@@ -4,6 +4,8 @@ const transitionColorMap: { [index: string]: string } = {
     "submission": "black",
 };
 
+const GRID_UNIT = 50;
+
 
 type InputDataType = {
     nodes: {
@@ -30,19 +32,19 @@ type InputDataType = {
 const generateInputData = () => {
     const inputData: InputDataType = {
         "nodes": [
-            { "key": 0, "id": "closed-guard", "x": 0, "y": 0 },
-            { "key": 10, "id": "half-guard", "x": 50, "y": 0 },
-            { "key": 20, "id": "open-guard", "x": 100, "y": 0 },
-            { "key": 30, "id": "de-la-riva-guard", "x": 100, "y": 0 },
-            { "key": 40, "id": "side-mount", "x": 0, "y": -50 },
-            { "key": 50, "id": "knee-on-belly", "x": 0, "y": -100 },
-            { "key": 60, "id": "mount", "x": 0, "y": 100 },
-            { "key": 70, "id": "rear-mount", "x": 0, "y": 150 },
-            { "key": 80, "id": "turtle", "x": 0, "y": 200 },
-            { "key": 100, "id": "standing", "x": 0, "y": 70 },
+            { "key": 0, "id": "closed-guard", "x": 1*GRID_UNIT, "y": 0 },
+            { "key": 10, "id": "half-guard", "x": 1*GRID_UNIT, "y": 1*GRID_UNIT },
+            { "key": 20, "id": "open-guard", "x": 1*GRID_UNIT, "y": -1*GRID_UNIT },
+            { "key": 30, "id": "de-la-riva-guard", "x": 1*GRID_UNIT, "y": 2*GRID_UNIT },
+            { "key": 40, "id": "side-mount", "x": 2*GRID_UNIT, "y": -2*GRID_UNIT },
+            { "key": 50, "id": "knee-on-belly", "x": 3*GRID_UNIT, "y": -2*GRID_UNIT },
+            { "key": 60, "id": "mount", "x": 4*GRID_UNIT, "y": -1*GRID_UNIT },
+            { "key": 70, "id": "rear-mount", "x": 4*GRID_UNIT, "y": 1*GRID_UNIT },
+            { "key": 80, "id": "turtle", "x": 3*GRID_UNIT, "y": 2*GRID_UNIT },
+            { "key": 100, "id": "standing", "x": -1*GRID_UNIT, "y": 0 },
             // { "id": 110, "name": "combat-base", "x": -50, "y": 50},
             // { "id": 120, "name": "headquarters", "x": 50, "y": 100 },
-            { "key": 1000, "id": "submission", "x": 100, "y": 100 },
+            { "key": 1000, "id": "submission", "x": 5*GRID_UNIT, "y": 0 },
         ],
         "links": [
             // Takedowns
