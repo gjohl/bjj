@@ -1,3 +1,5 @@
+import './PositionSection.css';
+
 const PositionSection = (props: any) => {
     const {
         titleName,

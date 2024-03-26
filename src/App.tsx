@@ -1,4 +1,4 @@
-import './App.module.css';
+import './App.css';
 // import graphData from './data/data-parser';
 // import * as graphData from './data/position-data.json';
 // import randomData, { genRandomTree } from './data/random-data';
