@@ -20,6 +20,7 @@ const PositionSectionTabs = (props: any) => {
         topTransitions,
         bottomTransitions,
         submissions,
+        selectedMove,
         setSelectedMove
     } = props;
 
@@ -81,7 +82,7 @@ const PositionSectionTabs = (props: any) => {
                     {titleName.replaceAll('-', ' ').toUpperCase()}
                 </div>
                 <div className='infoListItems'>
-                    <ListContents inputList={moves} onClick={setSelectedMove} />
+                    <ListContents inputList={moves} onClick={setSelectedMove} selectedMove={selectedMove}/>
                 </div>
             </div>
 
@@ -90,10 +91,22 @@ const PositionSectionTabs = (props: any) => {
 };
 
 const ListContents = (props: any) => {
-    const { inputList, onClick } = props;
+    const { inputList, onClick, selectedMove } = props;
+    console.log(inputList)
+    console.log(selectedMove)
     if (inputList.length > 0) {
         return <ul>
-            {inputList.map((item: any) => <div id={item.name ? item.name : item.id}> <button onClick={() => { onClick(item) }}>{item.name}</button> </div>)}
+            {inputList.map((item: any) => (
+                <div id={item.name}>
+                    <button
+                        id="tab-button"
+                        onClick={() => { onClick(item) }}
+                        className={item.name === selectedMove.name ? 'active' : undefined}
+                    >
+                        {item.name}
+                    </button>
+                </div>)
+            )}
         </ul>
     }
     return "Select a position..."

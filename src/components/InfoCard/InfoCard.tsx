@@ -49,6 +49,7 @@ const InfoCard: React.FC<any> = (props) => {
                     topTransitions={topTransitions}
                     bottomTransitions={bottomTransitions}
                     submissions={submissions}
+                    selectedMove={selectedMove}
                     setSelectedMove={setSelectedMove}
                 />
             </div>
