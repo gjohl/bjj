@@ -1,9 +1,7 @@
-import './InfoCard.css';
 import React from "react";
-import Paper from '@mui/material/Paper';
 
-import PositionSection from './PositionSection';
-import MoveDetailsSection from './MoveDetailsSection';
+import PositionSectionTabs from "./PositionSectionTabs";
+import MoveDetailsSectionTabs from "./MoveDetailsSectionTabs";
 
 
 const InfoCard: React.FC<any> = (props) => {
@@ -11,47 +9,49 @@ const InfoCard: React.FC<any> = (props) => {
     const titleName = node ? node.id : 'Select a node';
 
     // Selecting nodes
-    let sweeps = []
-    let escapes = [];
+    let topTransitions = []
+    let bottomTransitions = [];
     let submissions = [];
 
     if (node && node.links) {
-        sweeps = node.links.filter((link: any) => (link.transitionType === 'sweep') && (link.source.id === node.id));
-        escapes = node.links.filter((link: any) => (link.transitionType === 'escape') && (link.source.id === node.id));
+        topTransitions = node.links.filter((link: any) => (link.transitionType === 'topTransition') && (link.source.id === node.id));
+        bottomTransitions = node.links.filter((link: any) => (link.transitionType === 'bottomTransition') && (link.source.id === node.id));
         submissions = node.links.filter((link: any) => (link.transitionType === 'submission') && (link.source.id === node.id));
     } else {
         console.log("Node is null or links array doesn't exist.");
     }
 
     // Selecting moves
+    let movetitle = "MOVE DETAILS";
     let moveDescription: string[] = [];
     let moveRelatedLinks: string[] = [];
 
     if (selectedMove) {
+        movetitle = selectedMove.name;
         moveDescription = selectedMove.description;
         moveRelatedLinks = selectedMove.relatedLinks;
     }
 
     return (
         <>
-            <Paper elevation={20} style={{margin: 5, height: "20%"}}>
-                <PositionSection
+            <div>
+                <PositionSectionTabs 
                     titleName={titleName}
-                    sweeps={sweeps}
-                    escapes={escapes}
+                    topTransitions={topTransitions}
+                    bottomTransitions={bottomTransitions}
                     submissions={submissions}
+                    selectedMove={selectedMove}
                     setSelectedMove={setSelectedMove}
                 />
+            </div>
 
-            </Paper>
-
-            <Paper elevation={20} style={{margin: 5, height: "20%"}}>
-                <MoveDetailsSection
+            <div>
+                <MoveDetailsSectionTabs 
+                    movetitle={movetitle}
                     moveDescription={moveDescription}
                     moveRelatedLinks={moveRelatedLinks}
                 />
-            </Paper>
-
+            </div>
 
         </>
     )

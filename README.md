@@ -1,5 +1,5 @@
 # BJJ Network Graph
-This is a network graph showing the sweeps, escapes and submission paths between different grappling positions.
+This is a network graph showing the transitions and submission paths between different grappling positions.
 
 
 ## Developer Notes

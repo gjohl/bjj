@@ -1,5 +1,4 @@
 import React, { useCallback, useState } from 'react';
-import Paper from '@mui/material/Paper';
 
 import InfoCard from '../components/InfoCard/InfoCard';
 import NetworkGraph from '../components/Graph/NetworkGraph';
@@ -75,31 +74,24 @@ const TaxonomyScreen: React.FC<any> = (props) => {
     return (
         <>
             <div>
-                <div>
                     <InfoCard
                         node={clickNode}
                         selectedMove={selectedMove}
                         setSelectedMove={setSelectedMove}
                     />
-                </div>
 
 
 
-                <div>
-                    <Paper elevation={20} style={{ margin: 5 }} square={false}>
-                        <NetworkGraph
-                            graphData={graphData}
-                            nodeRelSize={NODE_R}
-                            nodeCanvasObjectMode={(node: Node) => highlightNodes.has(node) ? 'before' : 'after'}
-                            nodeCanvasObject={paintRing}
-                            linkWidth={(link: Link) => highlightLinks.has(link) ? 10 : 5}
-                            onNodeClick={handleNodeClick}
-                            // onLinkClick={handleLinkClick}
-                            onLinkClick={() => { }}
-                        />
-                    </Paper>
-
-                </div>
+                    <NetworkGraph
+                        graphData={graphData}
+                        nodeRelSize={NODE_R}
+                        nodeCanvasObjectMode={(node: Node) => highlightNodes.has(node) ? 'before' : 'after'}
+                        nodeCanvasObject={paintRing}
+                        linkWidth={(link: Link) => highlightLinks.has(link) ? 10 : 5}
+                        onNodeClick={handleNodeClick}
+                        // onLinkClick={handleLinkClick}
+                        onLinkClick={() => { }}
+                    />
             </div>
 
 
