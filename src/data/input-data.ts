@@ -163,7 +163,7 @@ const generateInputData = () => {
     inputData.links.forEach(link => {
         link.id = counter;
         link.color = transitionColorMap[link.transitionType];
-        link.curvature = link.curvature? link.curvature : Math.random();
+        link.curvature = link.curvature? link.curvature : 0.6 * Math.random();
 
         // Find the source and target nodes of this link
         const a = inputData.nodes.filter(node => node.id === link.source)[0]
