@@ -7,8 +7,6 @@ const containerStyles = {
     height: "20%",
     padding: '1rem',
     borderRadius: '6px',
-    // backgroundColor: '#2f1d43',
-    // boxShadow: '0 2px 8px rgba(0, 0, 0, 0.3)',
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-around'
@@ -40,12 +38,7 @@ const PositionSectionTabs = (props: any) => {
                     display: 'flex',
                     flexDirection: 'column',
                     flex: 1,
-                    // // backgroundColor: 'red',
                     justifyContent: 'flex-start',
-                    // alignContent: 'right',
-                    // float: 'right'
-                    // marginLeft: 'auto', 
-                    // marginRight: 0,
                 }}
             >
                 {/* Left hand tab buttons */}
