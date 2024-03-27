@@ -14,7 +14,7 @@ const containerStyles = {
     justifyContent: 'space-around'
 };
 
-const SectionCard = (props: any) => {
+const PositionSectionTabs = (props: any) => {
     const {
         titleName,
         topTransitions,
@@ -23,14 +23,14 @@ const SectionCard = (props: any) => {
         setSelectedMove
     } = props;
 
-    const [selectedPositionType, setselectedPositionType] = useState('topTransition');
+    const [selectedTab, setselectedTab] = useState('topTransition');
     const movesMapping = {
         'topTransition': topTransitions,
         'bottomTransition': bottomTransitions,
         'submission': submissions
     }
-    const moves = movesMapping[selectedPositionType];
-    console.log(selectedPositionType)
+    const moves = movesMapping[selectedTab];
+    console.log(selectedTab)
 
     return (
         <div style={containerStyles}>
@@ -50,20 +50,20 @@ const SectionCard = (props: any) => {
                 {/* Left hand tab buttons */}
                 <menu>
                     <TabButton
-                        isSelected={selectedPositionType === 'topTransition'}
-                        onSelect={() => setselectedPositionType('topTransition')}>
+                        isSelected={selectedTab === 'topTransition'}
+                        onSelect={() => setselectedTab('topTransition')}>
                         Top
                     </TabButton>
 
                     <TabButton
-                        isSelected={selectedPositionType === 'bottomTransition'}
-                        onSelect={() => setselectedPositionType('bottomTransition')}>
+                        isSelected={selectedTab === 'bottomTransition'}
+                        onSelect={() => setselectedTab('bottomTransition')}>
                         Bottom
                     </TabButton>
 
                     <TabButton
-                        isSelected={selectedPositionType === 'submission'}
-                        onSelect={() => setselectedPositionType('submission')}>
+                        isSelected={selectedTab === 'submission'}
+                        onSelect={() => setselectedTab('submission')}>
                         Submissions
                     </TabButton>
                 </menu>
@@ -100,4 +100,4 @@ const ListContents = (props: any) => {
 
 
 
-export default SectionCard;
+export default PositionSectionTabs;

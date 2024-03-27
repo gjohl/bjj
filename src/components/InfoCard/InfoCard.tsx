@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 
-import PositionSection from './PositionSection';
-import MoveDetailsSection from './MoveDetailsSection';
-import SectionCard from "./SectionCard";
+import PositionSectionTabs from "./PositionSectionTabs";
+import MoveDetailsSectionTabs from "./MoveDetailsSectionTabs";
 
 
 const divStyle = {
@@ -44,31 +43,20 @@ const InfoCard: React.FC<any> = (props) => {
 
     return (
         <>
-            <div style={divStyle}>
-                <PositionSection
+            <div>
+                <PositionSectionTabs 
                     titleName={titleName}
                     topTransitions={topTransitions}
                     bottomTransitions={bottomTransitions}
                     submissions={submissions}
                     setSelectedMove={setSelectedMove}
-                />
-
-            </div>
-
-            <div style={divStyle}>
-                <MoveDetailsSection
-                    moveDescription={moveDescription}
-                    moveRelatedLinks={moveRelatedLinks}
                 />
             </div>
 
             <div>
-                <SectionCard 
-                    titleName={titleName}
-                    topTransitions={topTransitions}
-                    bottomTransitions={bottomTransitions}
-                    submissions={submissions}
-                    setSelectedMove={setSelectedMove}
+                <MoveDetailsSectionTabs 
+                    moveDescription={moveDescription}
+                    moveRelatedLinks={moveRelatedLinks}
                 />
             </div>
 
