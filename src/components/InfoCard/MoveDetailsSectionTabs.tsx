@@ -14,8 +14,10 @@ const containerStyles = {
     justifyContent: 'space-around'
 };
 
-const MoveDetailsSectionTabs = (props: any) => {
+const 
+MoveDetailsSectionTabs = (props: any) => {
     const {
+        movetitle,
         moveDescription,
         moveRelatedLinks
     } = props;
@@ -72,7 +74,7 @@ const MoveDetailsSectionTabs = (props: any) => {
             >
                 {/* Tab content */}
                 <div className='infoSubtitle'>
-                    {"MOVE DETAILS"}
+                    {movetitle}
                 </div>
                 <div className='infoListItems'>
                     {notesSelected && <ListDescription inputList={moveDescription} />}
@@ -92,7 +94,7 @@ const ListUrls = (props: any) => {
             {inputList.map((item: any) => <div id={item}> <a href={item}>{item}</a> </div>)}
         </ul>
     }
-    return "Select a move..."
+    return "Then select a move..."
 }
 
 
@@ -103,7 +105,7 @@ const ListDescription = (props: any) => {
             {inputList.map((item: any) => <div  id={item}> <li>{item}</li> </div>)}
         </ol>
     }
-    return "Select a move..."
+    return "Then select a move..."
 }
 
 

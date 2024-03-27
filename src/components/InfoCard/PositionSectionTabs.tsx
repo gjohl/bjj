@@ -101,7 +101,7 @@ const ListContents = (props: any) => {
                     <button
                         id="tab-button"
                         onClick={() => { onClick(item) }}
-                        className={item.name === selectedMove.name ? 'active' : undefined}
+                        className={item.name === selectedMove?.name ? 'active' : undefined}
                     >
                         {item.name}
                     </button>

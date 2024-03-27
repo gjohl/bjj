@@ -33,10 +33,12 @@ const InfoCard: React.FC<any> = (props) => {
     }
 
     // Selecting moves
+    let movetitle = "MOVE DETAILS";
     let moveDescription: string[] = [];
     let moveRelatedLinks: string[] = [];
 
     if (selectedMove) {
+        movetitle = selectedMove.name;
         moveDescription = selectedMove.description;
         moveRelatedLinks = selectedMove.relatedLinks;
     }
@@ -56,6 +58,7 @@ const InfoCard: React.FC<any> = (props) => {
 
             <div>
                 <MoveDetailsSectionTabs 
+                    movetitle={movetitle}
                     moveDescription={moveDescription}
                     moveRelatedLinks={moveRelatedLinks}
                 />
