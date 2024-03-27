@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import PositionSectionTabs from "./PositionSectionTabs";
 import MoveDetailsSectionTabs from "./MoveDetailsSectionTabs";
@@ -11,7 +11,7 @@ const divStyle = {
     padding: '1rem',
     borderRadius: '6px',
     backgroundColor: '#2f1d43',
-    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.3)',
+    // boxShadow: '0 2px 8px rgba(0, 0, 0, 0.3)',
     
 };
 

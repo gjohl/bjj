@@ -8,7 +8,7 @@ const containerStyles = {
     padding: '1rem',
     borderRadius: '6px',
     // backgroundColor: '#2f1d43',
-    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.3)',
+    // boxShadow: '0 2px 8px rgba(0, 0, 0, 0.3)',
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-around'
@@ -72,7 +72,8 @@ const PositionSectionTabs = (props: any) => {
             <div
                 style={{
                     flex: 4,
-                    backgroundColor: '#2f1d43'
+                    backgroundColor: '#2f1d43',
+                    borderRadius: '20px',
                 }}
             >
                 {/* Tab content */}

@@ -20,7 +20,7 @@ const NetworkGraph: React.FC<any> = (props) => {
             enableNodeDrag={false}
 
             //  For debugging UI
-            backgroundColor='white'
+            // backgroundColor='white'
             height={500}
             width={900}
 
