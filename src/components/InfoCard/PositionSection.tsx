@@ -1,4 +1,4 @@
-import './PositionSection.css';
+import './Section.css';
 
 const PositionSection = (props: any) => {
     const {

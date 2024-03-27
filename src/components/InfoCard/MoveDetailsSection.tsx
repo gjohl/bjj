@@ -1,4 +1,4 @@
-import './MoveDetailsSection.css';
+import './Section.css';
 
 const MoveDetailsSection = (props: any) => {
     const { moveDescription, moveRelatedLinks } = props;
