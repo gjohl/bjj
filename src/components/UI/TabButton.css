@@ -1,8 +1,8 @@
 
-button {
+#tab-button {
     padding: 0.5rem 1rem;
     margin-bottom: 10px;
-    /* width: 100px; */
+    width: 120px;
     border: none;
     border-radius: 6px;
     background-color: transparent;
@@ -11,15 +11,15 @@ button {
     font-size: 1rem;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
-    /* text-align: 'end'; */
+    text-align: 'right';
   }
   
-button:hover {
+  #tab-button:hover {
     background-color: #1b082f;
     color: #ebe7ef;
   }
   
-button.active {
+  #tab-button.active {
     background-color: #7925d3;
     color: #ebe7ef;
   }

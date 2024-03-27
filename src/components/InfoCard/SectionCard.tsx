@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import TabButton from '../UI/TabButton';
 import './Section.css';
 
@@ -14,15 +15,30 @@ const containerStyles = {
 };
 
 const SectionCard = (props: any) => {
-    const { titleName, moves, setSelectedMove } = props;
+    const {
+        titleName,
+        topTransitions,
+        bottomTransitions,
+        submissions,
+        setSelectedMove
+    } = props;
+
+    const [selectedPositionType, setselectedPositionType] = useState('topTransition');
+    const movesMapping = {
+        'topTransition': topTransitions,
+        'bottomTransition': bottomTransitions,
+        'submission': submissions
+    }
+    const moves = movesMapping[selectedPositionType];
+    console.log(selectedPositionType)
 
     return (
         <div style={containerStyles}>
             <div
-                style={{ 
+                style={{
                     display: 'flex',
                     flexDirection: 'column',
-                    flex: 1, 
+                    flex: 1,
                     // // backgroundColor: 'red',
                     justifyContent: 'flex-start',
                     // alignContent: 'right',
@@ -33,63 +49,41 @@ const SectionCard = (props: any) => {
             >
                 {/* Left hand tab buttons */}
                 <menu>
-                    <TabButton isSelected={true}>Button1</TabButton>
-                    <TabButton isSelected={false}>Button2</TabButton>
-                    <TabButton isSelected={false}>Button3</TabButton>
+                    <TabButton
+                        isSelected={selectedPositionType === 'topTransition'}
+                        onSelect={() => setselectedPositionType('topTransition')}>
+                        Top
+                    </TabButton>
+
+                    <TabButton
+                        isSelected={selectedPositionType === 'bottomTransition'}
+                        onSelect={() => setselectedPositionType('bottomTransition')}>
+                        Bottom
+                    </TabButton>
+
+                    <TabButton
+                        isSelected={selectedPositionType === 'submission'}
+                        onSelect={() => setselectedPositionType('submission')}>
+                        Submissions
+                    </TabButton>
                 </menu>
             </div>
 
             <div
-                style={{ 
-                    flex: 4, 
-                    backgroundColor: '#2f1d43' 
-            }}
+                style={{
+                    flex: 4,
+                    backgroundColor: '#2f1d43'
+                }}
             >
                 {/* Tab content */}
                 <div className='infoSubtitle'>
-                        {titleName}
-                    </div>
-                    <div className='infoListItems'>
-                        {/* <ListContents inputList={submissions} onClick={setSelectedMove} /> */}
-                        <ListContents inputList={moves} onClick={setSelectedMove} />
-                    </div>
+                    {titleName.replaceAll('-', ' ').toUpperCase()}
+                </div>
+                <div className='infoListItems'>
+                    <ListContents inputList={moves} onClick={setSelectedMove} />
+                </div>
             </div>
 
-            {/* <div className='infoTitle'>
-                {titleName.replaceAll('-', ' ').toUpperCase()}
-            </div>
-
-            <div className="sectionContainer">
-                <div className='infoSubsectionContainer'>
-                    <div className='infoSubtitle'>
-                        Top Transitions
-                    </div>
-                    <div className='infoListItems'>
-                        <ListContents inputList={topTransitions} onClick={setSelectedMove} />
-                    </div>
-
-                </div>
-
-                <div className='infoSubsectionContainer'>
-                    <div className='infoSubtitle'>
-                        Bottom Transitions
-                    </div>
-                    <div className='infoListItems'>
-                        <ListContents inputList={bottomTransitions} onClick={setSelectedMove} />
-                    </div>
-                </div>
-
-
-                <div className='infoSubsectionContainer'>
-                    <div className='infoSubtitle'>
-                        Submissions
-                    </div>
-                    <div className='infoListItems'>
-                        <ListContents inputList={submissions} onClick={setSelectedMove} />
-                    </div>
-                </div>
-
-            </div> */}
         </div>
     )
 };

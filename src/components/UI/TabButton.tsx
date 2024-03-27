@@ -6,11 +6,11 @@ const TabButton: React.FC<any> = (props) => {
     const {children, onSelect, isSelected } = props;
 
     return (
-        // <li>
-            <button className={isSelected ? 'active' : undefined} onClick={onSelect}>
+        // <div style={{width: '200px'}}>
+            <button id='tab-button' className={isSelected ? 'active' : undefined} onClick={onSelect}>
                 {children}
             </button>
-        // </li>
+        // </div>
     )
 }
 

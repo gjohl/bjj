@@ -1,5 +1,4 @@
-import React from "react";
-import Paper from '@mui/material/Paper';
+import React, { useState } from "react";
 
 import PositionSection from './PositionSection';
 import MoveDetailsSection from './MoveDetailsSection';
@@ -66,7 +65,9 @@ const InfoCard: React.FC<any> = (props) => {
             <div>
                 <SectionCard 
                     titleName={titleName}
-                    moves={submissions}
+                    topTransitions={topTransitions}
+                    bottomTransitions={bottomTransitions}
+                    submissions={submissions}
                     setSelectedMove={setSelectedMove}
                 />
             </div>
