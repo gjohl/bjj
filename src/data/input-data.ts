@@ -1,6 +1,6 @@
 const transitionColorMap: { [index: string]: string } = {
-    "sweep": "green",
-    "escape": "red",
+    "topTransition": "green",
+    "bottomTransition": "red",
     "submission": "black",
 };
 
@@ -19,7 +19,7 @@ type InputDataType = {
     links: {
         id?: number;
         name: string;
-        transitionType: string;  // sweep/escape/submission
+        transitionType: string;  // topTransition/bottomTransition/submission
         description: string[];
         relatedLinks: string[];
         source: string;
@@ -50,7 +50,7 @@ const generateInputData = () => {
             // Takedowns
             {
                 "name": "Single leg takedown",
-                "transitionType": "sweep",
+                "transitionType": "topTransition",
                 "description": ["Gurp's notes on single leg takedown"],
                 "relatedLinks": [],
                 "source": "standing",
@@ -58,7 +58,7 @@ const generateInputData = () => {
             },
             {
                 "name": "Double leg takedown",
-                "transitionType": "sweep",
+                "transitionType": "topTransition",
                 "description": ["Gurp's notes on double leg takedown"],
                 "relatedLinks": [],
                 "source": "standing",
@@ -68,7 +68,7 @@ const generateInputData = () => {
             // Closed guard
             {
                 "name": "Hip bump sweep",
-                "transitionType": "sweep",
+                "transitionType": "bottomTransition",
                 "description": ["Gurp's notes on hip bump"],
                 "relatedLinks": [],
                 "source": "closed-guard",
@@ -76,7 +76,7 @@ const generateInputData = () => {
             },
             {
                 "name": "Scissor sweep",
-                "transitionType": "sweep",
+                "transitionType": "bottomTransition",
                 "description": ["Gurp's notes on scissor"],
                 "relatedLinks": [],
                 "source": "closed-guard",
@@ -84,7 +84,7 @@ const generateInputData = () => {
             },
             {
                 "name": "Flower sweep",
-                "transitionType": "sweep",
+                "transitionType": "bottomTransition",
                 "description": ["Gurp's notes on flower"],
                 "relatedLinks": [],
                 "source": "closed-guard",
@@ -92,7 +92,7 @@ const generateInputData = () => {
             },
             {
                 "name": "Guard break and knee slide",
-                "transitionType": "escape",
+                "transitionType": "topTransition",
                 "description": ["Gurp's notes on guard break", "Step 2"],
                 "relatedLinks": [],
                 "source": "closed-guard",
@@ -109,7 +109,7 @@ const generateInputData = () => {
             // De La Riva Guard
             {
                 "name": "Sit up sweep",
-                "transitionType": "sweep",
+                "transitionType": "bottomTransition",
                 "description": [
                     "(DLR guard sitting on opp's right foot)",
                     "Opp breaks your grip so grab his sleeve (with your right hand)", 
@@ -127,7 +127,7 @@ const generateInputData = () => {
             },
             {
                 "name": "Sweep to mount",
-                "transitionType": "sweep",
+                "transitionType": "bottomTransition",
                 "description": [
                     "(DLR guard sitting on opp's right foot with right hand grip on lapel)",
                     "Right foot above knee & kick to unbalance", 

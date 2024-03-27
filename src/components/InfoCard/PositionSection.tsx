@@ -3,8 +3,8 @@ import './Section.css';
 const PositionSection = (props: any) => {
     const {
         titleName,
-        sweeps,
-        escapes,
+        topTransitions,
+        bottomTransitions,
         submissions,
         setSelectedMove
     } = props;
@@ -17,19 +17,19 @@ const PositionSection = (props: any) => {
             <div className="sectionContainer">
                 <div className='infoSubsectionContainer'>
                     <div className='infoSubtitle'>
-                        Sweeps
+                        Top Transitions
                     </div>
                     <div className='infoListItems'>
-                        <ListContents inputList={sweeps} onClick={setSelectedMove} />
+                        <ListContents inputList={topTransitions} onClick={setSelectedMove} />
                     </div>
                 </div>
 
                 <div className='infoSubsectionContainer'>
                     <div className='infoSubtitle'>
-                        Escapes
+                        Bottom Transitions
                     </div>
                     <div className='infoListItems'>
-                        <ListContents inputList={escapes} onClick={setSelectedMove} />
+                        <ListContents inputList={bottomTransitions} onClick={setSelectedMove} />
                     </div>
                 </div>
 
@@ -42,7 +42,6 @@ const PositionSection = (props: any) => {
                         <ListContents inputList={submissions} onClick={setSelectedMove} />
                     </div>
                 </div>
-
 
             </div>
         </div>
