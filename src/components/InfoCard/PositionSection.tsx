@@ -1,3 +1,4 @@
+import TabButton from '../UI/TabButton';
 import './Section.css';
 
 const PositionSection = (props: any) => {
@@ -22,6 +23,7 @@ const PositionSection = (props: any) => {
                     <div className='infoListItems'>
                         <ListContents inputList={topTransitions} onClick={setSelectedMove} />
                     </div>
+
                 </div>
 
                 <div className='infoSubsectionContainer'>
@@ -53,7 +55,7 @@ const ListContents = (props: any) => {
     const { inputList, onClick } = props;
     if (inputList.length > 0) {
         return <ul>
-            {inputList.map((item: any) => <div> <button onClick={() => { onClick(item) }}>{item.name}</button> </div>)}
+            {inputList.map((item: any) => <div id={item.name ? item.name : item.id}> <button onClick={() => { onClick(item) }}>{item.name}</button> </div>)}
         </ul>
     }
     return "Select a position..."

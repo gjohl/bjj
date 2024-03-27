@@ -37,8 +37,7 @@ const ListUrls = (props: any) => {
     const { inputList } = props;
     if (inputList.length > 0) {
         return <ul>
-
-            {inputList.map((item: any) => <div> <a href={item}>{item}</a> </div>)}
+            {inputList.map((item: any) => <div id={item}> <a href={item}>{item}</a> </div>)}
         </ul>
     }
     return "Select a move..."
@@ -49,7 +48,7 @@ const ListDescription = (props: any) => {
     const { inputList } = props;
     if (inputList.length > 0) {
         return <ol>
-            {inputList.map((item: any) => <div> <li>{item}</li> </div>)}
+            {inputList.map((item: any) => <div  id={item}> <li>{item}</li> </div>)}
         </ol>
     }
     return "Select a move..."
