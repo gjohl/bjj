@@ -1,4 +1,3 @@
-import TabButton from '../UI/TabButton';
 import './Section.css';
 
 const PositionSection = (props: any) => {

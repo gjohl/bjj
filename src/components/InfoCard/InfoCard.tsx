@@ -3,6 +3,7 @@ import Paper from '@mui/material/Paper';
 
 import PositionSection from './PositionSection';
 import MoveDetailsSection from './MoveDetailsSection';
+import SectionCard from "./SectionCard";
 
 
 const divStyle = {
@@ -59,6 +60,14 @@ const InfoCard: React.FC<any> = (props) => {
                 <MoveDetailsSection
                     moveDescription={moveDescription}
                     moveRelatedLinks={moveRelatedLinks}
+                />
+            </div>
+
+            <div>
+                <SectionCard 
+                    titleName={titleName}
+                    moves={submissions}
+                    setSelectedMove={setSelectedMove}
                 />
             </div>
 

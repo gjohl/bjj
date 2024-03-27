@@ -1,5 +1,8 @@
-#examples menu button {
+
+button {
     padding: 0.5rem 1rem;
+    margin-bottom: 10px;
+    /* width: 100px; */
     border: none;
     border-radius: 6px;
     background-color: transparent;
@@ -8,14 +11,15 @@
     font-size: 1rem;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
+    /* text-align: 'end'; */
   }
   
-  #examples menu button:hover {
+button:hover {
     background-color: #1b082f;
     color: #ebe7ef;
   }
   
-  #examples menu button.active {
+button.active {
     background-color: #7925d3;
     color: #ebe7ef;
   }
