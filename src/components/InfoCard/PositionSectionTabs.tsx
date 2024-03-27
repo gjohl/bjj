@@ -28,10 +28,14 @@ const PositionSectionTabs = (props: any) => {
         'bottomTransition': bottomTransitions,
         'submission': submissions
     }
+    // FIXME: resolve this once code is tidied
+    // @ts-ignore
     const moves = movesMapping[selectedTab];
     console.log(selectedTab)
 
     return (
+        // FIXME: resolve this once code is tidied
+        // @ts-ignore
         <div style={containerStyles}>
             <div
                 style={{
@@ -75,7 +79,7 @@ const PositionSectionTabs = (props: any) => {
                     {titleName.replaceAll('-', ' ').toUpperCase()}
                 </div>
                 <div className='infoListItems'>
-                    <ListContents inputList={moves} onClick={setSelectedMove} selectedMove={selectedMove}/>
+                    <ListContents inputList={moves} onClick={setSelectedMove} selectedMove={selectedMove} />
                 </div>
             </div>
 

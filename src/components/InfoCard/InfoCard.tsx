@@ -4,17 +4,6 @@ import PositionSectionTabs from "./PositionSectionTabs";
 import MoveDetailsSectionTabs from "./MoveDetailsSectionTabs";
 
 
-const divStyle = {
-    // borderRadius: 5,
-    margin: 5,
-    height: "20%",
-    padding: '1rem',
-    borderRadius: '6px',
-    backgroundColor: '#2f1d43',
-    // boxShadow: '0 2px 8px rgba(0, 0, 0, 0.3)',
-    
-};
-
 const InfoCard: React.FC<any> = (props) => {
     const { node, selectedMove, setSelectedMove } = props;
     const titleName = node ? node.id : 'Select a node';
