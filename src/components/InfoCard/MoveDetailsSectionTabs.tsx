@@ -79,7 +79,7 @@ const ListUrls = (props: any) => {
     const { inputList } = props;
     if (inputList.length > 0) {
         return <ul>
-            {inputList.map((item: any) => <div id={item}> <a href={item}>{item}</a> </div>)}
+            {inputList.map((item: any) => <div id={item}> <a href={item} target='_blank'>{item}</a> </div>)}
         </ul>
     }
     return "Then select a move..."
