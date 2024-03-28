@@ -1,7 +1,7 @@
 const transitionColorMap: { [index: string]: string } = {
-    "topTransition": "green",
-    "bottomTransition": "red",
-    "submission": "black",
+    "topTransition": "#04A777",
+    "bottomTransition": "#FED776",
+    "submission": "#D81E5B",
 };
 
 const GRID_UNIT = 50;
