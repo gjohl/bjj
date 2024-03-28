@@ -21,6 +21,7 @@ const TaxonomyScreen: React.FC<any> = (props) => {
     const paintRing = useCallback((node: Node, ctx: any) => {
         //  muted lavender #2f1d43
         // bright purple #7925D3
+        // lilac #BE97C6
 
         const nodeText = node.shortName;
 
@@ -33,7 +34,7 @@ const TaxonomyScreen: React.FC<any> = (props) => {
         // Add ring just for highlighted nodes
         ctx.beginPath();
         ctx.arc(node.x, node.y, NODE_R * 1.4, 0, 2 * Math.PI, false);
-        ctx.fillStyle = node === clickNode ? '#FFFFF2' : '#7925D3';
+        ctx.fillStyle = node === clickNode ? '#7925D3' : '#2f1d43';
         ctx.fill();
 
 

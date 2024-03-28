@@ -16,6 +16,7 @@ type InputDataType = {
         y: number,
         neighbors?: any[];
         links?: any[];
+        color?: string;
     }[];
     links: {
         id?: number;
@@ -188,6 +189,11 @@ const generateInputData = () => {
 
         counter = counter + 1
     });
+
+    // Add default node color
+    inputData.nodes.forEach(node => {
+        node.color = '#7925D3'
+    })
 
     return inputData;
 
