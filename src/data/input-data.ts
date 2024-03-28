@@ -11,6 +11,7 @@ type InputDataType = {
     nodes: {
         key: number;
         id: string;
+        shortName: string;
         x: number;
         y: number,
         neighbors?: any[];
@@ -32,19 +33,19 @@ type InputDataType = {
 const generateInputData = () => {
     const inputData: InputDataType = {
         "nodes": [
-            { "key": 0, "id": "closed-guard", "x": 1*GRID_UNIT, "y": 0 },
-            { "key": 10, "id": "half-guard", "x": 1*GRID_UNIT, "y": 1*GRID_UNIT },
-            { "key": 20, "id": "open-guard", "x": 1*GRID_UNIT, "y": -1*GRID_UNIT },
-            { "key": 30, "id": "de-la-riva-guard", "x": 1*GRID_UNIT, "y": 2*GRID_UNIT },
-            { "key": 40, "id": "side-mount", "x": 2*GRID_UNIT, "y": -2*GRID_UNIT },
-            { "key": 50, "id": "knee-on-belly", "x": 3*GRID_UNIT, "y": -2*GRID_UNIT },
-            { "key": 60, "id": "mount", "x": 4*GRID_UNIT, "y": -1*GRID_UNIT },
-            { "key": 70, "id": "rear-mount", "x": 4*GRID_UNIT, "y": 1*GRID_UNIT },
-            { "key": 80, "id": "turtle", "x": 3*GRID_UNIT, "y": 2*GRID_UNIT },
-            { "key": 100, "id": "standing", "x": -1*GRID_UNIT, "y": 0 },
+            { "key": 0, "id": "closed-guard", "shortName": "CG", "x": 1*GRID_UNIT, "y": 0 },
+            { "key": 10, "id": "half-guard", "shortName": "HG", "x": 1*GRID_UNIT, "y": 1*GRID_UNIT },
+            { "key": 20, "id": "open-guard", "shortName": "OG", "x": 1*GRID_UNIT, "y": -1*GRID_UNIT },
+            { "key": 30, "id": "de-la-riva-guard", "shortName": "DLR", "x": 1*GRID_UNIT, "y": 2*GRID_UNIT },
+            { "key": 40, "id": "side-mount", "shortName": "SM", "x": 2*GRID_UNIT, "y": -2*GRID_UNIT },
+            { "key": 50, "id": "knee-on-belly", "shortName": "KoB", "x": 3*GRID_UNIT, "y": -2*GRID_UNIT },
+            { "key": 60, "id": "mount", "shortName": "M", "x": 4*GRID_UNIT, "y": -1*GRID_UNIT },
+            { "key": 70, "id": "rear-mount", "shortName": "RM", "x": 4*GRID_UNIT, "y": 1*GRID_UNIT },
+            { "key": 80, "id": "turtle", "shortName": "T", "x": 3*GRID_UNIT, "y": 2*GRID_UNIT },
+            { "key": 100, "id": "standing", "shortName": "St", "x": -1*GRID_UNIT, "y": 0 },
             // { "id": 110, "name": "combat-base", "x": -50, "y": 50},
             // { "id": 120, "name": "headquarters", "x": 50, "y": 100 },
-            { "key": 1000, "id": "submission", "x": 5*GRID_UNIT, "y": 0 },
+            { "key": 1000, "id": "submission", "shortName": "Sub", "x": 5*GRID_UNIT, "y": 0 },
         ],
         "links": [
             // Takedowns
