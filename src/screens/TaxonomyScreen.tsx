@@ -39,10 +39,6 @@ const TaxonomyScreen: React.FC<any> = (props) => {
         ctx.fillText(nodeText, node.x, node.y);
     }, []);
 
-    const updateHighlight = () => {
-        setHighlightNodes(highlightNodes);
-        setHighlightLinks(highlightLinks);
-    };
 
     const handleNodeClick = (node: any) => {
         highlightNodes.clear();
@@ -50,26 +46,20 @@ const TaxonomyScreen: React.FC<any> = (props) => {
         setSelectedMove(null);
         if (node) {
             highlightNodes.add(node);
-            node.neighbors.forEach((neighbor: object) => highlightNodes.add(neighbor));
-            node.links.forEach((link: object) => highlightLinks.add(link));
+            // Highlight target nodes which can be reached from this position
+            node.links.forEach((link: {target: object}) => highlightNodes.add(link.target));
+            // Highlight links which begin from this position
+            node.links.filter((item: any) => item.source.id === node.id).forEach((link: object) => highlightLinks.add(link));  
         }
         setClickNode(node || null);
         updateHighlight();
     };
 
-    // const handleLinkClick = (link: Link) => {
-    //     highlightNodes.clear();
-    //     highlightLinks.clear();
-    //     setSelectedMove(null);
-    //     if (link) {
-    //         highlightLinks.add(link);
-    //         highlightNodes.add(link.source);
-    //         highlightNodes.add(link.target);
-    //     }
-    //     updateHighlight();
-    // };
+    const updateHighlight = () => {
+        setHighlightNodes(highlightNodes);
+        setHighlightLinks(highlightLinks);
+    };
 
-    console.log(graphData)
 
     return (
         <>
@@ -80,25 +70,19 @@ const TaxonomyScreen: React.FC<any> = (props) => {
                         setSelectedMove={setSelectedMove}
                     />
 
-
-
                     <NetworkGraph
                         graphData={graphData}
                         nodeRelSize={NODE_R}
                         nodeCanvasObjectMode={(node: Node) => highlightNodes.has(node) ? 'before' : 'after'}
                         nodeCanvasObject={paintRing}
-                        linkWidth={(link: Link) => highlightLinks.has(link) ? 10 : 5}
+                        linkWidth={(link: Link) => highlightLinks.has(link) ? 5 : 2}
                         onNodeClick={handleNodeClick}
                         // onLinkClick={handleLinkClick}
                         onLinkClick={() => { }}
                     />
             </div>
 
-
         </>
-
-
-
     )
 }
 

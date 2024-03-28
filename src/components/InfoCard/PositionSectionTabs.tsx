@@ -31,7 +31,6 @@ const PositionSectionTabs = (props: any) => {
     // FIXME: resolve this once code is tidied
     // @ts-ignore
     const moves = movesMapping[selectedTab];
-    console.log(selectedTab)
 
     return (
         // FIXME: resolve this once code is tidied
@@ -89,8 +88,7 @@ const PositionSectionTabs = (props: any) => {
 
 const ListContents = (props: any) => {
     const { inputList, onClick, selectedMove } = props;
-    console.log(inputList)
-    console.log(selectedMove)
+    
     if (inputList.length > 0) {
         return <ul>
             {inputList.map((item: any) => (

@@ -16,7 +16,7 @@ const NetworkGraph: React.FC<any> = (props) => {
     return (
         <ForceGraph2D
             graphData={graphData}
-            nodeAutoColorBy={"group"}
+            // nodeAutoColorBy={"group"}
             enableNodeDrag={false}
 
             //  For debugging UI
