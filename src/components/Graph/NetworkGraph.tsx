@@ -33,7 +33,7 @@ const NetworkGraph: React.FC<any> = (props) => {
             linkCurvature={"curvature"}
             linkDirectionalArrowLength={10}
             linkDirectionalArrowRelPos={0.5}
-            linkDirectionalParticles={3}
+            // linkDirectionalParticles={0}
 
             // Text in nodes
             nodeRelSize={nodeRelSize}

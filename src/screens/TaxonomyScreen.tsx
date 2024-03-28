@@ -77,7 +77,6 @@ const TaxonomyScreen: React.FC<any> = (props) => {
                         nodeCanvasObject={paintRing}
                         linkWidth={(link: Link) => highlightLinks.has(link) ? 5 : 2}
                         onNodeClick={handleNodeClick}
-                        // onLinkClick={handleLinkClick}
                         onLinkClick={() => { }}
                     />
             </div>
