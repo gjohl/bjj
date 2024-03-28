@@ -9,6 +9,7 @@ const NetworkGraph: React.FC<any> = (props) => {
         nodeCanvasObjectMode,
         nodeCanvasObject,
         linkWidth,
+        linkDirectionalParticleWidth,
         onNodeClick,
         onLinkClick
     } = props;
@@ -24,11 +25,11 @@ const NetworkGraph: React.FC<any> = (props) => {
 
             // Link attributes        
             linkCurvature={"curvature"}
-            linkDirectionalArrowLength={10}
-            linkDirectionalArrowRelPos={0.5}
+            linkDirectionalArrowLength={15}
+            linkDirectionalArrowRelPos={0.93}
             linkLabel={''}
-            
-            // linkDirectionalParticles={0}
+            linkDirectionalParticles={1.5}
+            linkDirectionalParticleWidth={linkDirectionalParticleWidth}
 
             // Text in nodes
             nodeRelSize={nodeRelSize}

@@ -86,6 +86,7 @@ const TaxonomyScreen: React.FC<any> = (props) => {
                     nodeRelSize={NODE_R}
                     nodeCanvasObject={paintRing}
                     linkWidth={(link: Link) => highlightLinks.has(link) ? 5 : 2}
+                    linkDirectionalParticleWidth={(link: Link) => highlightLinks.has(link) ? 8 : 4}
                     onNodeClick={handleNodeClick}
                     onLinkClick={() => { }}
                 />
