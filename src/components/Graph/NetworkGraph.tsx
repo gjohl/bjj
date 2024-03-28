@@ -16,25 +16,18 @@ const NetworkGraph: React.FC<any> = (props) => {
     return (
         <ForceGraph2D
             graphData={graphData}
-            // nodeAutoColorBy={"group"}
-            enableNodeDrag={false}
-
+            
             //  For debugging UI
             // backgroundColor='white'
             height={500}
             width={900}
 
-            // Zoom-to-fit
-            // ref={fgRef}
-            // onEngineStop={() => fgRef.current?.zoomToFit(1000)}
-
             // Link attributes        
-            // linkWidth={15}
             linkCurvature={"curvature"}
             linkDirectionalArrowLength={10}
             linkDirectionalArrowRelPos={0.5}
             linkLabel={''}
-            nodeLabel={''}
+            
             // linkDirectionalParticles={0}
 
             // Text in nodes
@@ -42,6 +35,7 @@ const NetworkGraph: React.FC<any> = (props) => {
             autoPauseRedraw={false}
             nodeCanvasObjectMode={nodeCanvasObjectMode}
             nodeCanvasObject={nodeCanvasObject}
+            nodeLabel={''}
 
             // Highlight
             linkWidth={linkWidth}
@@ -49,6 +43,7 @@ const NetworkGraph: React.FC<any> = (props) => {
             onLinkClick={onLinkClick}
 
             d3AlphaDecay={1}
+            enableNodeDrag={false}
             enablePanInteraction={false}
             enableZoomInteraction={false}
         />

@@ -11,7 +11,7 @@ type Link = { source: string; target: string; };
 const TaxonomyScreen: React.FC<any> = (props) => {
     const { graphData } = props;
 
-    const NODE_R = 8;
+    const NODE_R = 10;
 
     const [highlightNodes, setHighlightNodes] = useState(new Set());
     const [highlightLinks, setHighlightLinks] = useState(new Set());
@@ -19,6 +19,7 @@ const TaxonomyScreen: React.FC<any> = (props) => {
     const [selectedMove, setSelectedMove] = useState(null);
 
     const paintRing = useCallback((node: Node, ctx: any) => {
+        console.log(ctx)
         const nodeText = node.shortName;
         // Add ring just for highlighted nodes
         ctx.beginPath();
